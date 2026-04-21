@@ -103,6 +103,7 @@ nav.scrolled {
 .nav-inner {
   display: flex; align-items: center; justify-content: space-between;
   max-width: 1400px; margin: 0 auto; padding: 0 24px;
+  position: relative;
 }
 .nav-logo img { height: 182px; transition: height 0.35s ease; display: block; }
 nav.scrolled .nav-logo img { height: 101px; }
@@ -114,6 +115,17 @@ nav.scrolled .nav-logo img { height: 101px; }
 .nav-links a:hover { color: var(--teal-mid); }
 .nav-cta { background: var(--teal) !important; color: white !important; padding: 8px 20px; border-radius: 50px; }
 .nav-cta:hover { background: var(--teal-mid) !important; }
+.nav-event-pill {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 500; color: var(--navy);
+  background: var(--teal-light); border: 1px solid var(--border);
+  border-radius: 50px; padding: 6px 16px;
+  white-space: nowrap;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+nav.scrolled .nav-event-pill { opacity: 1; pointer-events: auto; }
 
 /* ── HERO ── */
 .hero {
