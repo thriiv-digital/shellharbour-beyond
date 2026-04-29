@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Member Directory — Shellharbour &amp; Beyond Networking Group</title>
+  <meta name="description" content="Browse all members of the Shellharbour &amp; Beyond Networking Group. Local businesses, professionals and community leaders across the Shellharbour region."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── MEMBERS PAGE ── */
+    .members-hero {
+      background: linear-gradient(160deg, #f0fafc 0%, #e8f4f8 40%, #fdf8f2 100%);
+      padding: 160px 0 60px;
+    }
+    .members-hero h1 { font-size: clamp(32px,4vw,50px); color: var(--navy); margin-bottom: 12px; }
+    .members-hero p { font-size: 18px; color: var(--text-muted); max-width: 520px; }
+
+    .members-controls {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      position: sticky; top: 0; z-index: 50;
+    }
+    .members-controls-inner {
+      display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+      max-width: 1400px; margin: 0 auto; padding: 0 24px;
+    }
+    .search-box {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--sand); border: 1.5px solid var(--border);
+      border-radius: 50px; padding: 9px 16px; flex: 1; max-width: 320px;
+    }
+    .search-box input {
+      border: none; background: none; font-family: 'DM Sans', sans-serif;
+      font-size: 14px; color: var(--text); outline: none; width: 100%;
+    }
+    .search-box svg { flex-shrink: 0; color: var(--text-muted); }
+    .filter-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn {
+      background: none; border: 1.5px solid var(--border); border-radius: 50px;
+      padding: 7px 16px; font-family: 'DM Sans', sans-serif; font-size: 13px;
+      font-weight: 500; color: var(--text-muted); cursor: pointer; transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .filter-btn:hover { border-color: var(--teal); color: var(--teal-mid); }
+    .filter-btn.active { background: var(--navy); border-color: var(--navy); color: white; }
+    .member-count {
+      margin-left: auto; font-size: 13px; color: var(--text-muted); white-space: nowrap;
+    }
+
+    .members-body { padding: 48px 0 80px; background: var(--sand); }
+    .members-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+    }
+    .member-card {
+      background: white; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(26,58,107,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .member-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(26,58,107,0.13); }
+    .member-card-header {
+      height: 120px; display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .member-card-logo {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: white; object-fit: contain; padding: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .member-card-initial {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: white; display: flex; align-items: center; justify-content: center;
+      font-size: 28px; font-weight: 700; color: var(--navy);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      font-family: 'DM Serif Display', serif;
+    }
+    .member-card-body { padding: 20px 24px 24px; flex: 1; display: flex; flex-direction: column; }
+    .member-card-body .biz-tag { margin-bottom: 10px; }
+    .member-card-body h3 {
+      font-family: 'DM Serif Display', serif; font-size: 19px;
+      color: var(--navy); margin-bottom: 8px; line-height: 1.25;
+    }
+    .member-card-body p {
+      font-size: 14px; color: var(--text-muted); line-height: 1.6;
+      flex: 1; margin-bottom: 20px;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .member-card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 16px; border-top: 1px solid var(--border);
+    }
+    .member-since { font-size: 12px; color: var(--text-muted); }
+    .view-profile {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600; color: var(--teal-mid);
+      text-decoration: none; transition: gap 0.2s;
+    }
+    .view-profile:hover { gap: 10px; }
+
+    .no-results {
+      text-align: center; padding: 80px 24px; color: var(--text-muted);
+      grid-column: 1 / -1;
+    }
+    .no-results h3 { font-family: 'DM Sans', sans-serif; font-size: 18px; color: var(--navy); margin-bottom: 8px; }
+
+    @media (max-width: 900px) { .members-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 540px) { .members-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="uploads/logo-shellharbour-beyond-networking-group.png" alt="Shellharbour &amp; Beyond Networking Group"/>
+    </a>
+    <div class="nav-event-pill">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Next Event: May 14, 2026 &nbsp;·&nbsp; 10:00am – 11:30am
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#events">Events</a></li>
+      <li><a href="index.html#membership">Membership</a></li>
+      <li><a href="members.html">Directory</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="members-hero">
+  <div class="container">
+    <span class="section-tag">Member Directory</span>
+    <h1>Our Business Community</h1>
+    <p>Connecting Shellharbour's finest — local businesses, professionals and community leaders all in one place.</p>
+  </div>
+</section>
+
+<!-- CONTROLS -->
+<div class="members-controls">
+  <div class="members-controls-inner">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="search-input" placeholder="Search members…" aria-label="Search members"/>
+    </div>
+    <div class="filter-btns" id="filter-btns">
+      <button class="filter-btn active" data-type="all">All</button>
+    </div>
+    <span class="member-count" id="member-count"></span>
+  </div>
+</div>
+
+<!-- MEMBERS GRID -->
+<section class="members-body">
+  <div class="container">
+    <div class="members-grid" id="members-grid">
+      <!-- populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="uploads/pasted-1776672992337-0.png" alt="Shellharbour &amp; Beyond Networking Group"/>
+      <p>Connecting local business, building community, and supporting each other — right here in Shellharbour.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#events">Events</a></li>
+        <li><a href="index.html#membership">Membership</a></li>
+        <li><a href="members.html">Directory</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Follow Us</h5>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="https://www.facebook.com/groups/1859999315387617" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+      <div class="footer-socials">
+        <a href="#" class="footer-social" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.facebook.com/groups/1859999315387617" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" class="footer-social" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Shellharbour &amp; Beyond Networking Group. All rights reserved.</p>
+    <p class="footer-location">Shellharbour, NSW, Australia</p>
+  </div>
+</footer>
+
+<script>
+const TYPE_COLORS = {
+  'Hospitality':          '#e6f7fa',
+  'Professional Services':'#fef3e8',
+  'Health & Wellness':    '#e8f5e9',
+  'Trades':               '#fce4ec',
+  'Marketing':            '#f3e5f5',
+  'Real Estate':          '#fff8e1',
+  'Finance':              '#e3f2fd',
+  'Retail':               '#fbe9e7',
+  'Technology':           '#e8eaf6',
+  'Education':            '#f1f8e9',
+  'Community & NFP':      '#ede7f6',
+  'Other':                '#f5f5f5'
+};
+
+let allMembers = [];
+let activeType = 'all';
+let searchTerm = '';
+
+function getInitial(name) { return name.trim()[0].toUpperCase(); }
+
+function renderGrid(members) {
+  const grid = document.getElementById('members-grid');
+  const count = document.getElementById('member-count');
+  if (!members.length) {
+    grid.innerHTML = '<div class="no-results"><h3>No members found</h3><p>Try a different search or filter.</p></div>';
+    count.textContent = '0 members';
+    return;
+  }
+  count.textContent = members.length + ' member' + (members.length !== 1 ? 's' : '');
+  grid.innerHTML = members.map(m => {
+    const color = TYPE_COLORS[m.type] || '#f5f5f5';
+    const logoHtml = m.logo
+      ? `<img src="${m.logo}" alt="${m.name} logo" class="member-card-logo"/>`
+      : `<div class="member-card-initial">${getInitial(m.name)}</div>`;
+    const desc = m.description.length > 160 ? m.description.slice(0, 157) + '…' : m.description;
+    return `
+      <a href="member.html?id=${m.id}" class="member-card" style="text-decoration:none;color:inherit">
+        <div class="member-card-header" style="background:${color}">${logoHtml}</div>
+        <div class="member-card-body">
+          <span class="biz-tag">${m.type}</span>
+          <h3>${m.name}</h3>
+          <p>${desc}</p>
+          <div class="member-card-footer">
+            <span class="member-since">Member since ${m.member_since}</span>
+            <span class="view-profile">
+              View Profile
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>`;
+  }).join('');
+}
+
+function applyFilters() {
+  let filtered = [...allMembers];
+  if (activeType !== 'all') filtered = filtered.filter(m => m.type === activeType);
+  if (searchTerm) {
+    const s = searchTerm.toLowerCase();
+    filtered = filtered.filter(m =>
+      m.name.toLowerCase().includes(s) ||
+      m.type.toLowerCase().includes(s) ||
+      m.description.toLowerCase().includes(s)
+    );
+  }
+  renderGrid(filtered);
+}
+
+fetch('directory.json')
+  .then(r => r.json())
+  .then(data => {
+    allMembers = data.slice().sort((a, b) => a.name.localeCompare(b.name));
+    // Build filter buttons
+    const types = [...new Set(allMembers.map(m => m.type))].sort();
+    const filterBtns = document.getElementById('filter-btns');
+    types.forEach(type => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn';
+      btn.dataset.type = type;
+      btn.textContent = type;
+      btn.addEventListener('click', () => {
+        activeType = type;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilters();
+      });
+      filterBtns.appendChild(btn);
+    });
+    filterBtns.querySelector('[data-type="all"]').addEventListener('click', () => {
+      activeType = 'all';
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      filterBtns.querySelector('[data-type="all"]').classList.add('active');
+      applyFilters();
+    });
+    renderGrid(allMembers);
+  });
+
+document.getElementById('search-input').addEventListener('input', e => {
+  searchTerm = e.target.value.trim();
+  applyFilters();
+});
+
+// Nav scroll
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+nav.classList.toggle('scrolled', window.scrollY > 60);
+</script>
+</body>
+</html>

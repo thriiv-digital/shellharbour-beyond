@@ -57,6 +57,41 @@ document.getElementById('contact-form').addEventListener('submit', e => {
   document.getElementById('form-success').style.display = 'block';
 });
 
+// ── HOMEPAGE DIRECTORY ──
+const TYPE_COLORS = {
+  'Hospitality':'#e6f7fa','Professional Services':'#fef3e8',
+  'Health & Wellness':'#e8f5e9','Trades':'#fce4ec',
+  'Marketing':'#f3e5f5','Real Estate':'#fff8e1',
+  'Finance':'#e3f2fd','Retail':'#fbe9e7',
+  'Technology':'#e8eaf6','Education':'#f1f8e9',
+  'Community & NFP':'#ede7f6','Other':'#f5f5f5'
+};
+const homepageGrid = document.getElementById('homepage-directory-grid');
+if (homepageGrid) {
+  fetch('directory.json')
+    .then(r => r.json())
+    .then(data => {
+      const sorted = data.slice().sort((a, b) => a.name.localeCompare(b.name)).slice(0, 6);
+      homepageGrid.innerHTML = sorted.map(m => {
+        const color = TYPE_COLORS[m.type] || '#f5f5f5';
+        const thumbContent = m.logo
+          ? `<img src="${m.logo}" alt="${m.name}" style="height:70px;object-fit:contain;padding:8px"/>`
+          : `<span class="biz-thumb-label">[ business logo / photo ]</span>`;
+        return `
+          <a href="member.html?id=${m.id}" class="biz-card" style="text-decoration:none;color:inherit">
+            <div class="biz-card-thumb" style="background:repeating-linear-gradient(45deg,${color},${color} 8px,white 8px,white 16px)">
+              ${thumbContent}
+            </div>
+            <div class="biz-card-body">
+              <span class="biz-tag">${m.type}</span>
+              <h4>${m.name}</h4>
+              <p>${m.description.length > 90 ? m.description.slice(0,87)+'…' : m.description}</p>
+            </div>
+          </a>`;
+      }).join('');
+    });
+}
+
 // ── SMOOTH SCROLL for nav links ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {

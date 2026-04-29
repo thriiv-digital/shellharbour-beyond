@@ -297,7 +297,7 @@ nav.scrolled .nav-event-pill { display: flex; }
 }
 .biz-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(26,58,107,0.13); }
 .biz-card-thumb {
-  height: 120px;
+  height: 160px;
   display: flex; align-items: center; justify-content: center;
 }
 .biz-thumb-label { font-family: monospace; font-size: 11px; color: #7a9aaa; padding: 10px; text-align: center; }
