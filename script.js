@@ -59,14 +59,20 @@ document.getElementById('contact-form').addEventListener('submit', e => {
 
 // ── HOMEPAGE DIRECTORY ──
 const TYPE_COLORS = {
-  'Hospitality':'#e6f7fa','Professional Services':'#fef3e8',
-  'Health & Wellness':'#e8f5e9','Trades':'#fce4ec',
-  'Marketing':'#f3e5f5','Real Estate':'#fff8e1',
-  'Finance':'#e3f2fd','Retail':'#fbe9e7',
-  'Technology':'#e8eaf6','Education':'#f1f8e9',
-  'Community & NFP':'#ede7f6','Arts & Creative':'#fce8f3',
-  'Business Consulting':'#e8f4f0','Government & Community':'#e8edf5',
-  'Other':'#f5f5f5'
+  'Arts & Creative':       '#fce8f3',
+  'Business Consulting':   '#e8f4f0',
+  'Finance':               '#e3f2fd',
+  'Government & Community':'#e8edf5',
+  'Health & Wellness':     '#e8f5e9',
+  'Hospitality':           '#e6f7fa',
+  'Marketing':             '#f3e5f5',
+  'NFP / Community':       '#ede7f6',
+  'Professional Services': '#fef3e8',
+  'Real Estate':           '#fff8e1',
+  'Retail':                '#fbe9e7',
+  'Technology':            '#e8eaf6',
+  'Trades':                '#fce4ec',
+  'Other':                 '#f5f5f5'
 };
 const homepageGrid = document.getElementById('homepage-directory-grid');
 if (homepageGrid) {

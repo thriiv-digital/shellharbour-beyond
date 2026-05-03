@@ -93,7 +93,6 @@
       display: flex; align-items: center; justify-content: space-between;
       padding-top: 16px; border-top: 1px solid var(--border);
     }
-    .member-since { font-size: 12px; color: var(--text-muted); }
     .view-profile {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 13px; font-weight: 600; color: var(--teal-mid);
@@ -107,7 +106,55 @@
     }
     .no-results h3 { font-family: 'DM Sans', sans-serif; font-size: 18px; color: var(--navy); margin-bottom: 8px; }
 
+    /* ── LIST YOUR BUSINESS CTA ── */
+    .list-cta {
+      background: var(--navy); padding: 64px 0;
+    }
+    .list-cta-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .list-cta-text { flex: 1; min-width: 260px; }
+    .list-cta-text .section-tag {
+      background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85);
+      border: none;
+    }
+    .list-cta-text h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(26px, 3vw, 38px); color: white;
+      margin: 12px 0 16px; line-height: 1.2;
+    }
+    .list-cta-text p {
+      font-size: 16px; color: rgba(255,255,255,0.72); line-height: 1.7; max-width: 480px;
+    }
+    .list-cta-box {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px; padding: 32px 36px; text-align: center;
+      flex-shrink: 0; min-width: 220px;
+    }
+    .list-cta-price {
+      font-size: 48px; font-weight: 700; color: var(--orange); line-height: 1;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .list-cta-price span { font-size: 20px; font-weight: 500; vertical-align: super; }
+    .list-cta-per { font-size: 13px; color: rgba(255,255,255,0.55); margin: 4px 0 24px; }
+    .list-cta-btn {
+      display: inline-block; background: var(--orange); color: white;
+      border-radius: 50px; padding: 14px 28px; font-weight: 700; font-size: 15px;
+      text-decoration: none; transition: background 0.2s, transform 0.2s; white-space: nowrap;
+    }
+    .list-cta-btn:hover { background: #e06d2a; transform: translateY(-2px); }
+    .list-cta-features {
+      display: flex; flex-direction: column; gap: 8px; margin-top: 20px; text-align: left;
+    }
+    .list-cta-feature {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: rgba(255,255,255,0.7);
+    }
+    .list-cta-feature svg { color: var(--teal); flex-shrink: 0; }
+
     @media (max-width: 900px) { .members-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 700px) { .list-cta-inner { flex-direction: column; } .list-cta-box { width: 100%; } }
     @media (max-width: 540px) { .members-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -165,6 +212,38 @@
   </div>
 </section>
 
+<!-- LIST YOUR BUSINESS CTA -->
+<section class="list-cta">
+  <div class="container">
+    <div class="list-cta-inner">
+      <div class="list-cta-text">
+        <span class="section-tag">Get Listed</span>
+        <h2>List Your Business in the Directory</h2>
+        <p>Join Shellharbour &amp; Beyond and get your business in front of the local community. One annual membership includes your full directory listing, networking event access, and a spot in our growing local business community.</p>
+        <div class="list-cta-features">
+          <div class="list-cta-feature">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Full business profile in the member directory
+          </div>
+          <div class="list-cta-feature">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Access to monthly networking events
+          </div>
+          <div class="list-cta-feature">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Connect with Shellharbour's business community
+          </div>
+        </div>
+      </div>
+      <div class="list-cta-box">
+        <div class="list-cta-price"><span>$</span>50</div>
+        <div class="list-cta-per">per year · inc. GST</div>
+        <a href="#" class="list-cta-btn">Get Listed →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -210,17 +289,19 @@
 
 <script>
 const TYPE_COLORS = {
-  'Hospitality':          '#e6f7fa',
-  'Professional Services':'#fef3e8',
-  'Health & Wellness':    '#e8f5e9',
-  'Trades':               '#fce4ec',
-  'Marketing':            '#f3e5f5',
-  'Real Estate':          '#fff8e1',
+  'Arts & Creative':      '#fce8f3',
+  'Business Consulting':  '#e8f4f0',
   'Finance':              '#e3f2fd',
+  'Government & Community':'#e8edf5',
+  'Health & Wellness':    '#e8f5e9',
+  'Hospitality':          '#e6f7fa',
+  'Marketing':            '#f3e5f5',
+  'NFP / Community':      '#ede7f6',
+  'Professional Services':'#fef3e8',
+  'Real Estate':          '#fff8e1',
   'Retail':               '#fbe9e7',
   'Technology':           '#e8eaf6',
-  'Education':            '#f1f8e9',
-  'Community & NFP':      '#ede7f6',
+  'Trades':               '#fce4ec',
   'Other':                '#f5f5f5'
 };
 
