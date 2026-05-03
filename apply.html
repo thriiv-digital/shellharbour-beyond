@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Listed — Shellharbour &amp; Beyond Networking Group</title>
+  <meta name="description" content="Join the Shellharbour &amp; Beyond member directory. Get your business listed and connect with the local Shellharbour business community for $50/year."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── APPLY PAGE ── */
+    .apply-hero {
+      background: linear-gradient(160deg, var(--navy) 0%, #1e4a82 60%, #163d70 100%);
+      padding: 120px 0 80px; text-align: center;
+    }
+    .apply-hero .section-tag {
+      background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85);
+      border-radius: 50px; padding: 4px 14px; border: none;
+    }
+    .apply-hero h1 {
+      font-size: clamp(34px, 5vw, 58px); color: white;
+      margin: 16px 0 20px; line-height: 1.15;
+    }
+    .apply-hero p {
+      font-size: 18px; color: rgba(255,255,255,0.72);
+      max-width: 540px; margin: 0 auto 40px; line-height: 1.7;
+    }
+    .apply-price-pill {
+      display: inline-flex; align-items: baseline; gap: 4px;
+      background: var(--orange); color: white;
+      border-radius: 50px; padding: 10px 24px;
+      font-weight: 700; font-size: 22px; margin-bottom: 32px;
+    }
+    .apply-price-pill small { font-size: 14px; font-weight: 500; opacity: 0.85; }
+    .apply-hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .apply-hero-btn {
+      background: var(--orange); color: white; border-radius: 50px;
+      padding: 16px 36px; font-weight: 700; font-size: 16px;
+      text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .apply-hero-btn:hover { background: #d05810; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,101,26,0.4); }
+    .apply-hero-link {
+      color: rgba(255,255,255,0.7); font-size: 14px;
+      display: inline-flex; align-items: center; gap: 6px;
+      text-decoration: none; padding: 16px 0; transition: color 0.2s;
+    }
+    .apply-hero-link:hover { color: white; }
+
+    /* ── HOW IT WORKS ── */
+    .how-it-works { padding: 80px 0; background: var(--sand); }
+    .how-it-works h2 {
+      font-size: clamp(28px, 3.5vw, 40px); color: var(--navy);
+      text-align: center; margin-bottom: 56px;
+    }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+      position: relative;
+    }
+    .steps-grid::before {
+      content: ''; position: absolute;
+      top: 28px; left: calc(12.5% + 20px); right: calc(12.5% + 20px);
+      height: 2px; background: var(--border); z-index: 0;
+    }
+    .step { text-align: center; position: relative; z-index: 1; }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--navy); color: white;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 700; margin-bottom: 20px;
+      font-family: 'DM Serif Display', serif;
+      box-shadow: 0 4px 16px rgba(26,58,107,0.2);
+    }
+    .step h3 {
+      font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
+      color: var(--navy); margin-bottom: 8px;
+    }
+    .step p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── WHAT YOU GET ── */
+    .what-you-get { padding: 80px 0; background: white; }
+    .wyg-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .wyg-text h2 {
+      font-size: clamp(28px, 3.5vw, 40px); color: var(--navy); margin-bottom: 12px;
+    }
+    .wyg-text .lead {
+      font-size: 17px; color: var(--text-muted); line-height: 1.7; margin-bottom: 32px;
+    }
+    .wyg-features { display: flex; flex-direction: column; gap: 16px; }
+    .wyg-feature {
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .wyg-feature-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: var(--teal-light); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--teal-mid);
+    }
+    .wyg-feature-text h4 {
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+      color: var(--navy); margin-bottom: 3px;
+    }
+    .wyg-feature-text p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+    .wyg-card {
+      background: var(--sand); border-radius: 24px; padding: 40px;
+      border: 1px solid var(--border); text-align: center;
+    }
+    .wyg-price {
+      font-size: 72px; font-weight: 700; color: var(--navy); line-height: 1;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .wyg-price sup { font-size: 28px; vertical-align: super; }
+    .wyg-price-label { font-size: 14px; color: var(--text-muted); margin: 6px 0 28px; }
+    .wyg-divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+    .wyg-inclusions { text-align: left; }
+    .wyg-inclusion {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: var(--text); padding: 7px 0;
+    }
+    .wyg-inclusion svg { color: var(--teal-mid); flex-shrink: 0; }
+    .wyg-cta { margin-top: 28px; }
+    .wyg-cta a {
+      display: block; background: var(--orange); color: white;
+      border-radius: 50px; padding: 15px 24px; font-weight: 700; font-size: 15px;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .wyg-cta a:hover { background: #d05810; transform: translateY(-2px); }
+    .wyg-note { font-size: 12px; color: var(--text-muted); margin-top: 12px; }
+
+    /* ── AGREEMENT ── */
+    .agreement-section { padding: 56px 0; background: var(--sand); }
+    .agreement-box {
+      background: white; border-radius: 20px; padding: 40px 48px;
+      border: 1px solid var(--border); max-width: 760px; margin: 0 auto;
+    }
+    .agreement-box h2 {
+      font-size: 24px; color: var(--navy); margin-bottom: 16px;
+    }
+    .agreement-box p {
+      font-size: 14px; color: var(--text-muted); line-height: 1.75; margin-bottom: 12px;
+    }
+    .agreement-box ul {
+      list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 16px 0 24px;
+    }
+    .agreement-box ul li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--text-muted);
+    }
+    .agreement-box ul li svg { color: var(--teal-mid); flex-shrink: 0; margin-top: 2px; }
+
+    /* ── EDIT LISTING ── */
+    .edit-listing-section { padding: 56px 0; background: white; }
+    .edit-listing-box {
+      background: var(--teal-light); border-radius: 20px; padding: 40px 48px;
+      display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+      border: 1px solid #c0e8f0;
+    }
+    .edit-listing-box svg { flex-shrink: 0; color: var(--teal-mid); }
+    .edit-listing-text { flex: 1; min-width: 240px; }
+    .edit-listing-text h3 {
+      font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700;
+      color: var(--navy); margin-bottom: 6px;
+    }
+    .edit-listing-text p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    .edit-listing-btn {
+      background: var(--navy); color: white; border-radius: 50px;
+      padding: 12px 24px; font-weight: 600; font-size: 14px;
+      text-decoration: none; transition: all 0.2s; white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .edit-listing-btn:hover { background: var(--teal-mid); }
+
+    @media (max-width: 900px) {
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid::before { display: none; }
+      .wyg-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 540px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .agreement-box, .edit-listing-box { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav" class="nav-compact">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="uploads/logo-shellharbour-beyond-networking-group.png" alt="Shellharbour &amp; Beyond Networking Group"/>
+    </a>
+    <div class="nav-event-pill">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Next Event: May 14, 2026 &nbsp;·&nbsp; 10:00am – 11:30am
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#events">Events</a></li>
+      <li><a href="index.html#membership">Membership</a></li>
+      <li><a href="members.html">Directory</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="apply-hero">
+  <div class="container">
+    <span class="section-tag">Join the Directory</span>
+    <h1>Get Your Business Listed</h1>
+    <p>One annual membership puts your business in front of the entire Shellharbour business community — online and at every networking event.</p>
+    <div class="apply-price-pill">
+      $50 <small>/ year · inc. GST</small>
+    </div>
+    <div class="apply-hero-cta">
+      <a href="#" class="apply-hero-btn" id="stripe-new-btn">
+        Get Listed Now
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="members.html" class="apply-hero-link">
+        Browse the directory
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+  <div class="container">
+    <span class="section-tag" style="display:block;text-align:center">The Process</span>
+    <h2>You're live in four steps</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Pay &amp; Register</h3>
+        <p>Click "Get Listed Now" and complete the $50 annual payment via Stripe. Secure, takes under a minute.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Fill In Your Details</h3>
+        <p>After payment you'll receive an email with a link to complete your full business listing — description, logo, photos, social links.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>We Review &amp; Approve</h3>
+        <p>Every listing is personally reviewed by our team before going live. We'll confirm within 1–2 business days.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>You're Live</h3>
+        <p>Your profile is published to the directory and visible to the entire Shellharbour business community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="what-you-get">
+  <div class="container">
+    <div class="wyg-inner">
+      <div class="wyg-text">
+        <span class="section-tag">Membership Includes</span>
+        <h2>Everything you need to connect locally</h2>
+        <p class="lead">Your directory listing is just the start. Membership gives you a real presence in the Shellharbour business community.</p>
+        <div class="wyg-features">
+          <div class="wyg-feature">
+            <div class="wyg-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="wyg-feature-text">
+              <h4>Full Business Profile</h4>
+              <p>Logo, description, photos, website, phone, email and social media links — all in one place.</p>
+            </div>
+          </div>
+          <div class="wyg-feature">
+            <div class="wyg-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div class="wyg-feature-text">
+              <h4>Monthly Networking Events</h4>
+              <p>Member access to our monthly morning networking sessions at Ariel's Café, Shellharbour Civic Centre.</p>
+            </div>
+          </div>
+          <div class="wyg-feature">
+            <div class="wyg-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="wyg-feature-text">
+              <h4>Community Referrals</h4>
+              <p>Be part of a trusted network of local businesses that actively refer each other.</p>
+            </div>
+          </div>
+          <div class="wyg-feature">
+            <div class="wyg-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            </div>
+            <div class="wyg-feature-text">
+              <h4>Update Your Listing Anytime</h4>
+              <p>Changed location, phone or description? Submit an update and we'll get it live within 1–2 days.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wyg-card">
+        <div class="wyg-price"><sup>$</sup>50</div>
+        <div class="wyg-price-label">per year · inc. GST</div>
+        <hr class="wyg-divider"/>
+        <div class="wyg-inclusions">
+          <div class="wyg-inclusion">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Full directory listing with photos &amp; logo
+          </div>
+          <div class="wyg-inclusion">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Monthly networking event access
+          </div>
+          <div class="wyg-inclusion">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Local business community &amp; referrals
+          </div>
+          <div class="wyg-inclusion">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Update your listing anytime
+          </div>
+          <div class="wyg-inclusion">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Renews annually — cancel anytime
+          </div>
+        </div>
+        <div class="wyg-cta">
+          <a href="#" id="stripe-card-btn">Get Listed Now →</a>
+        </div>
+        <p class="wyg-note">Secure payment via Stripe. Listing goes live after review.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP AGREEMENT -->
+<section class="agreement-section">
+  <div class="container">
+    <div class="agreement-box">
+      <span class="section-tag">Membership Agreement</span>
+      <h2>What we ask of members</h2>
+      <p>By joining the Shellharbour &amp; Beyond directory you agree to the following:</p>
+      <ul>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Your business is legitimately operating in or serving the Shellharbour region
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          The information in your listing is accurate and up to date
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          You will notify us of any significant changes to your business details
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          You conduct your business with integrity and respect toward other members
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Annual renewal maintains your active listing — non-renewal will result in removal after a 14-day grace period
+        </li>
+      </ul>
+      <p>We reserve the right to decline or remove any listing that does not meet our community standards. Payment is non-refundable once a listing has been approved.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXISTING MEMBER — UPDATE LISTING -->
+<section class="edit-listing-section">
+  <div class="container">
+    <div class="edit-listing-box">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      <div class="edit-listing-text">
+        <h3>Already a member? Update your listing</h3>
+        <p>Changed address, phone, description or photos? Submit an update request and we'll get your listing updated within 1–2 business days. All changes are reviewed before going live.</p>
+      </div>
+      <a href="#" id="stripe-edit-btn" class="edit-listing-btn">Request an Update →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="uploads/pasted-1776672992337-0.png" alt="Shellharbour &amp; Beyond Networking Group"/>
+      <p>Connecting local business, building community, and supporting each other — right here in Shellharbour.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#events">Events</a></li>
+        <li><a href="index.html#membership">Membership</a></li>
+        <li><a href="members.html">Directory</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Follow Us</h5>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="https://www.facebook.com/groups/1859999315387617" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+      <div class="footer-socials">
+        <a href="#" class="footer-social" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.facebook.com/groups/1859999315387617" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" class="footer-social" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Shellharbour &amp; Beyond Networking Group. All rights reserved.</p>
+    <p class="footer-location">Shellharbour, NSW, Australia</p>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+nav.classList.toggle('scrolled', window.scrollY > 60);
+
+// ── STRIPE / TALLY LINKS ──
+// Replace these constants with real URLs when ready
+const STRIPE_NEW_MEMBER_URL  = '#'; // e.g. https://buy.stripe.com/xxxx
+const TALLY_EDIT_REQUEST_URL = '#'; // e.g. https://tally.so/r/xxxx
+
+document.getElementById('stripe-new-btn').href  = STRIPE_NEW_MEMBER_URL;
+document.getElementById('stripe-card-btn').href = STRIPE_NEW_MEMBER_URL;
+document.getElementById('stripe-edit-btn').href = TALLY_EDIT_REQUEST_URL;
+</script>
+</body>
+</html>
