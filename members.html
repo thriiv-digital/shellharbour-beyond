@@ -160,6 +160,45 @@
     }
     .list-cta-feature svg { color: var(--teal); flex-shrink: 0; }
 
+    /* ── COMING SOON BANNER ── */
+    .coming-soon-banner {
+      background: linear-gradient(135deg, #fff8f0 0%, #fff3e6 100%);
+      border-bottom: 1px solid #f5d9b8;
+      padding: 18px 0;
+    }
+    .coming-soon-banner-inner {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      max-width: 1400px; margin: 0 auto; padding: 0 24px;
+    }
+    .cs-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--orange); color: white;
+      border-radius: 50px; padding: 4px 12px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .cs-badge svg { animation: cs-pulse 2s ease-in-out infinite; }
+    @keyframes cs-pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+    .coming-soon-banner-inner p {
+      font-size: 14px; color: #7a4a20; line-height: 1.5; margin: 0; flex: 1;
+    }
+    .coming-soon-banner-inner p strong { color: #5a3010; }
+    .cs-contact-link {
+      font-size: 13px; font-weight: 600; color: var(--orange);
+      text-decoration: none; white-space: nowrap; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 5px;
+      transition: color 0.2s;
+    }
+    .cs-contact-link:hover { color: #d05810; }
+
+    /* ── COMING SOON BUTTON ── */
+    .list-cta-btn-disabled {
+      display: inline-block; background: rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.55); border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 50px; padding: 14px 28px; font-weight: 700; font-size: 15px;
+      cursor: default; white-space: nowrap; user-select: none;
+    }
+
     @media (max-width: 900px) { .members-grid { grid-template-columns: repeat(2,1fr); } }
     @media (max-width: 700px) { .list-cta-inner { flex-direction: column; } .list-cta-box { width: 100%; } }
     @media (max-width: 540px) { .members-grid { grid-template-columns: 1fr; } }
@@ -199,6 +238,21 @@
     <p>Connecting Shellharbour's finest — local businesses, professionals and community leaders all in one place.</p>
   </div>
 </section>
+
+<!-- COMING SOON BANNER -->
+<div class="coming-soon-banner">
+  <div class="coming-soon-banner-inner">
+    <span class="cs-badge">
+      <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
+      Coming Soon
+    </span>
+    <p><strong>Self-service listings are on the way.</strong> In the meantime, get in touch and we'll add your business manually — no wait, no fuss.</p>
+    <a href="index.html#contact" class="cs-contact-link">
+      Get in touch
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</div>
 
 <!-- CONTROLS -->
 <div class="members-controls">
@@ -255,7 +309,7 @@
       <div class="list-cta-box">
         <div class="list-cta-price"><span>$</span>50</div>
         <div class="list-cta-per">per year · inc. GST</div>
-        <a href="apply.html" class="list-cta-btn">Get Listed →</a>
+        <span class="list-cta-btn-disabled">Get Listed — Coming Soon</span>
       </div>
     </div>
   </div>
