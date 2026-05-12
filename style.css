@@ -48,6 +48,7 @@ h1, h2, h3 { font-family: 'DM Serif Display', serif; line-height: 1.2; }
   text-decoration: none;
   display: inline-block;
 }
+.btn-coming-soon { opacity: 0.72; cursor: default; pointer-events: none; }
 .btn-primary:hover {
   background: #d05810;
   transform: translateY(-1px);
@@ -115,6 +116,9 @@ nav.scrolled .nav-logo img { height: 101px; }
 .nav-links a:hover { color: var(--teal-mid); }
 .nav-cta { background: var(--teal) !important; color: white !important; padding: 8px 20px; border-radius: 50px; }
 .nav-cta:hover { background: var(--teal-mid) !important; }
+
+/* Hide mobile-only nav items on desktop */
+.nav-mobile-event { display: none; }
 
 /* ── HAMBURGER ── */
 .nav-hamburger {
