@@ -100,14 +100,16 @@ if (homepageGrid) {
     });
 }
 
-// ── SMOOTH SCROLL for nav links ──
+// ── SMOOTH SCROLL for nav links (with nav offset) ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const id = a.getAttribute('href').slice(1);
     const target = document.getElementById(id);
     if (target) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
+      const navH = document.getElementById('main-nav')?.offsetHeight || 100;
+      const top  = target.getBoundingClientRect().top + window.scrollY - navH - 24;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   });
 });

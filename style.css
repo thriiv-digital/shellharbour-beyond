@@ -117,6 +117,9 @@ nav.scrolled .nav-logo img { height: 101px; }
 .nav-cta { background: var(--teal) !important; color: white !important; padding: 8px 20px; border-radius: 50px; }
 .nav-cta:hover { background: var(--teal-mid) !important; }
 
+/* Sticky nav scroll offset — keeps section headings clear of the fixed nav */
+#about, #events, #membership, #directory, #faq, #contact { scroll-margin-top: 120px; }
+
 /* Hide mobile-only nav items on desktop */
 .nav-mobile-event { display: none; }
 
