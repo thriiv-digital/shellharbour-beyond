@@ -492,8 +492,8 @@ footer { background: var(--navy-dark); padding: 48px 0 24px; }
 
   .footer-inner { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
-  .hero-visual { order: -1; }
-  .hero-inner { gap: 32px; padding-top: 140px; }
+  .hero-visual { order: -1; margin-top: 0; }
+  .hero-inner { gap: 32px; padding-top: 120px; }
 
   /* Shrink homepage nav logo on mobile so it doesn't overlap the countdown */
   #main-nav:not(.nav-compact) .nav-logo img { height: 90px; }
