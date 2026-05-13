@@ -103,7 +103,7 @@
     "id": "scaffold-drafting-consultancy",
     "name": "Scaffold Drafting Consultancy",
     "type": "Trades",
-    "logo": "",
+    "logo": "uploads/directory/logo-SDC-scaffolding.png",
     "address": "Wollongong, NSW (Australia-wide)",
     "phone": "0468 701 449",
     "email": "ermannosdc@outlook.com",
@@ -111,7 +111,11 @@
     "facebook": "",
     "instagram": "",
     "linkedin": "",
-    "images": [],
+    "images": [
+      "uploads/directory/scaff-images1.jpg",
+      "uploads/directory/scaff-images2.jpg",
+      "uploads/directory/scaff-images3.jpg"
+    ],
     "description": "Scaffold Drafting Consultancy delivers practical, compliant scaffold designs built for real site conditions across Australia. The firm serves residential, industrial and civil projects, and offers millimetre-precise site scanning using LiDAR technology to support construction planning and safety compliance.",
     "member_since": "2026"
   },
