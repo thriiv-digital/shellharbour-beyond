@@ -114,6 +114,7 @@ nav.scrolled .nav-logo img { height: 101px; }
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--teal-mid); }
+.nav-active { color: var(--teal-mid) !important; font-weight: 600; }
 .nav-cta { background: var(--teal) !important; color: white !important; padding: 8px 20px; border-radius: 50px; }
 .nav-cta:hover { background: var(--teal-mid) !important; }
 

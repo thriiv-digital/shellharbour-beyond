@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Region — Doing Business in Shellharbour | Shellharbour &amp; Beyond</title>
+  <meta name="description" content="Shellharbour is home to 4,294+ businesses and 83,000+ residents — and it's growing fast. Discover why this coastal city is one of NSW's most exciting places to do business."/>
+  <link rel="icon" type="image/png" href="uploads/logo-shellharbour-beyond-networking-group.png"/>
+  <!-- Canonical -->
+  <link rel="canonical" href="https://shbng.com.au/region.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Doing Business in Shellharbour — Our Region"/>
+  <meta property="og:description" content="Shellharbour is home to 4,294+ businesses and growing. Discover what makes this coastal city one of NSW's most exciting places to build a business."/>
+  <meta property="og:url" content="https://shbng.com.au/region.html"/>
+  <meta property="og:image" content="https://shbng.com.au/uploads/hero-networking-group.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "name": "Doing Business in Shellharbour",
+        "url": "https://shbng.com.au/region.html",
+        "description": "An overview of the Shellharbour economy, key business statistics, major precincts, industry sectors, and local business support resources.",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shbng.com.au/" },
+            { "@type": "ListItem", "position": 2, "name": "Our Region", "item": "https://shbng.com.au/region.html" }
+          ]
+        }
+      },
+      {
+        "@type": "Place",
+        "name": "Shellharbour City",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Shellharbour",
+          "addressRegion": "NSW",
+          "postalCode": "2529",
+          "addressCountry": "AU"
+        },
+        "description": "Shellharbour City LGA is a fast-growing coastal city south of Wollongong, home to 83,228 residents and 4,294+ businesses.",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -34.5864,
+          "longitude": 150.8736
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── REGION PAGE ── */
+
+    /* Page hero — navy gradient, no countdown widget */
+    .region-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1e4976 60%, var(--teal-mid) 100%);
+      padding: 140px 0 80px;
+      text-align: center;
+      color: white;
+    }
+    .region-hero .section-tag { color: rgba(255,255,255,0.75); background: rgba(255,255,255,0.12); }
+    .region-hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); margin: 12px 0 20px; color: white; }
+    .region-hero p { font-size: 1.1rem; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto 32px; line-height: 1.7; }
+    .region-hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .region-hero-actions .btn-primary { background: white; color: var(--navy); }
+    .region-hero-actions .btn-primary:hover { background: #f0f4f8; }
+    .region-hero-actions .btn-outline { border-color: rgba(255,255,255,0.5); color: white; }
+    .region-hero-actions .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+    /* Stats strip */
+    .stats-strip {
+      background: white;
+      border-bottom: 1px solid #eef1f5;
+      padding: 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .stat-item {
+      padding: 36px 28px;
+      text-align: center;
+      border-right: 1px solid #eef1f5;
+      position: relative;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.6rem;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-num span { color: var(--teal-mid); }
+    .stat-label { font-size: 0.85rem; color: var(--text-mid); line-height: 1.4; font-weight: 500; }
+    .stat-source { font-size: 0.72rem; color: #b0b8c4; margin-top: 4px; }
+    @media (max-width: 700px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3) { border-right: 1px solid #eef1f5; border-top: 1px solid #eef1f5; }
+      .stat-item:nth-child(4) { border-right: none; border-top: 1px solid #eef1f5; }
+    }
+    @media (max-width: 400px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stat-num { font-size: 2rem; }
+    }
+
+    /* Why section */
+    .why-section { padding: 80px 0; background: #f7f9fc; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .why-card {
+      background: white;
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 2px 12px rgba(26,58,107,0.06);
+    }
+    .why-card-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--teal-pale, #e8f4f0);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .why-card h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: 10px; }
+    .why-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.65; margin: 0; }
+    @media (max-width: 768px) {
+      .why-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+
+    /* Marina feature */
+    .marina-section { padding: 80px 0; background: white; }
+    .marina-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .marina-img-placeholder {
+      border-radius: 20px;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #e6f7fa 0%, #c8edf4 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal-mid);
+      font-size: 0.85rem;
+      font-weight: 500;
+      gap: 10px;
+      border: 2px dashed #b0d8e0;
+    }
+    .marina-img-placeholder svg { opacity: 0.5; }
+    .marina-img {
+      border-radius: 20px;
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+    .marina-content .section-tag { margin-bottom: 16px; display: inline-block; }
+    .marina-content h2 { margin-bottom: 16px; }
+    .marina-content p { color: var(--text-mid); line-height: 1.7; margin-bottom: 16px; }
+    .marina-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .marina-fact {
+      background: #f7f9fc;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .marina-fact-num { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--navy); line-height: 1; }
+    .marina-fact-label { font-size: 0.78rem; color: var(--text-mid); margin-top: 3px; }
+    @media (max-width: 768px) {
+      .marina-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* Industries */
+    .industries-section { padding: 80px 0; background: #f7f9fc; }
+    .industries-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 40px;
+    }
+    .industry-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 100px;
+      padding: 10px 20px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--navy);
+      box-shadow: 0 1px 4px rgba(26,58,107,0.05);
+    }
+    .industry-tag-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Resources section */
+    .resources-section { padding: 80px 0; background: white; }
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .resource-card {
+      border: 1.5px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .resource-card:hover { box-shadow: 0 4px 20px rgba(26,58,107,0.1); border-color: var(--teal-mid); }
+    .resource-logo {
+      height: 48px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .resource-logo img { max-height: 48px; max-width: 160px; object-fit: contain; object-position: left; }
+    .resource-logo-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      font-weight: 700;
+    }
+    .resource-card h4 { font-size: 1rem; color: var(--navy); margin-bottom: 10px; }
+    .resource-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; flex: 1; margin-bottom: 20px; }
+    .resource-card a.resource-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--teal-mid);
+      text-decoration: none;
+    }
+    .resource-card a.resource-link:hover { text-decoration: underline; }
+    @media (max-width: 768px) {
+      .resources-grid { grid-template-columns: 1fr; }
+    }
+
+    /* CTA section */
+    .region-cta {
+      background: linear-gradient(135deg, var(--navy) 0%, #1e4976 100%);
+      padding: 80px 0;
+      text-align: center;
+      color: white;
+    }
+    .region-cta .section-tag { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); }
+    .region-cta h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); color: white; margin: 16px 0 16px; }
+    .region-cta p { font-size: 1rem; color: rgba(255,255,255,0.8); max-width: 520px; margin: 0 auto 32px; line-height: 1.7; }
+    .region-cta .btn-primary { background: white; color: var(--navy); }
+    .region-cta .btn-primary:hover { background: #f0f4f8; }
+    .region-cta .btn-outline { border-color: rgba(255,255,255,0.4); color: white; }
+    .region-cta .btn-outline:hover { background: rgba(255,255,255,0.1); }
+    .region-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="uploads/logo-shellharbour-beyond-networking-group.png" alt="Shellharbour &amp; Beyond Networking Group"/>
+    </a>
+    <div class="nav-event-pill">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Next Event: May 14, 2026 &nbsp;·&nbsp; 10:00am – 11:30am
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#events">Events</a></li>
+      <li><a href="index.html#membership">Membership</a></li>
+      <li><a href="members.html">Directory</a></li>
+      <li><a href="region.html" class="nav-active">Our Region</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
+      <li class="nav-mobile-event">📅 Next Event: May 14, 2026 · 10:00am</li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="region-hero">
+  <div class="container">
+    <span class="section-tag">Our Region</span>
+    <h1>Shellharbour is Open for Business</h1>
+    <p>A coastal city on the rise. With thousands of local businesses, a landmark new marina precinct, and a community that genuinely backs each other — Shellharbour is one of NSW's most exciting places to build something.</p>
+    <div class="region-hero-actions">
+      <a href="index.html#events" class="btn-primary">Join the Next Event</a>
+      <a href="#resources" class="btn-outline">Business Resources</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<section class="stats-strip">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num">4,294<span>+</span></div>
+      <div class="stat-label">Businesses in Shellharbour City LGA</div>
+      <div class="stat-source">Shellharbour City Council</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">83<span>k</span></div>
+      <div class="stat-label">Residents — and growing</div>
+      <div class="stat-source">2025 Estimated Resident Population</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">270</div>
+      <div class="stat-label">Berths at Australia's newest marina</div>
+      <div class="stat-source">Shellharbour Marina, Shell Cove</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">90<span>min</span></div>
+      <div class="stat-label">To Sydney CBD via the M1</div>
+      <div class="stat-source">Coastal location, regional connectivity</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SHELLHARBOUR -->
+<section class="why-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Why Shellharbour</span>
+      <h2>A Great Place to Build a Business</h2>
+      <p>It's not just the lifestyle — though that helps. Shellharbour has the population, the growth, and the community spirit to make businesses genuinely thrive.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3>A City in Growth</h3>
+        <p>Shell Cove's masterplanned Waterfront precinct is transforming the region — new homes, hospitality venues, the Crown Plaza Hotel, and a marina drawing visitors from across NSW. This is a city with serious momentum, and new residents mean new customers.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Lifestyle That Attracts Talent</h3>
+        <p>Coastal living, affordable housing relative to Sydney, and a relaxed community culture are drawing professionals and families to the region. For employers, that means a growing local talent pool. For consumer businesses, it means a rising, engaged customer base right on your doorstep.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>A Community That Backs Its Own</h3>
+        <p>Shellharbour businesses are known for supporting each other. The council's Economic Development Unit actively partners with state government, and groups like SHBNG exist precisely because local business owners wanted a space to connect, collaborate, and grow together.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Connected, Not Isolated</h3>
+        <p>90 minutes to Sydney. Shellharbour Airport offering regional connections. Close to Wollongong's university, hospital, and services. You get the benefits of a close-knit regional community without being cut off from the broader economy.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Real Government Support</h3>
+        <p>Shellharbour City Council has a dedicated Economic Development Unit. Service NSW Business Bureau offers free, personalised business advice. And with state and federal programs available for local businesses, there's genuine support at every stage — startup through to scale.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Quality of Life, Built In</h3>
+        <p>Beaches, bushland, great coffee, and a coastal pace of life. Happy business owners make better decisions — and Shellharbour's lifestyle is genuinely one of its best business assets. It's easier to turn up and do great work when you love where you live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARINA FEATURE -->
+<section class="marina-section" id="marina">
+  <div class="container">
+    <div class="marina-inner">
+      <img src="uploads/shellcove-marina.jpg" alt="The Waterfront precinct at Shell Cove, Shellharbour Marina" class="marina-img" id="marina-img-wrap"/>
+      <div class="marina-content">
+        <span class="section-tag">Shell Cove &amp; The Waterfront</span>
+        <h2>Australia's Newest Marina Precinct</h2>
+        <p>The Waterfront at Shell Cove is the centrepiece of Shellharbour's growth story — a masterplanned coastal precinct built around a brand-new marina. It's drawing visitors, new residents, and businesses to the region in a way that's genuinely reshaping the local economy.</p>
+        <p>For the businesses already here, it's new customers and new energy. For businesses considering the region, it's a signal: Shellharbour is investing in its future.</p>
+        <div class="marina-facts">
+          <div class="marina-fact">
+            <div class="marina-fact-num">270</div>
+            <div class="marina-fact-label">Berths for vessels 10–35m</div>
+          </div>
+          <div class="marina-fact">
+            <div class="marina-fact-num">50nm</div>
+            <div class="marina-fact-label">South of Sydney by sea</div>
+          </div>
+          <div class="marina-fact">
+            <div class="marina-fact-num">2025</div>
+            <div class="marina-fact-label">Crown Plaza Hotel opening</div>
+          </div>
+          <div class="marina-fact">
+            <div class="marina-fact-num">Year-round</div>
+            <div class="marina-fact-label">Direct Tasman Sea access</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Industry Mix</span>
+      <h2>A Diverse Local Economy</h2>
+      <p>Shellharbour's business community spans a wide range of sectors — from established trades and retail to growing technology, professional services, and hospitality businesses.</p>
+    </div>
+    <div class="industries-grid">
+      <span class="industry-tag"><span class="industry-tag-dot" style="background:#fce8f3"></span> Arts &amp; Creative</span>
+      <span class="industry-tag"><span class="industry-tag-dot" style="background:#e8f4f0"></span> Business Consulting</span>
+      <span class="industry-tag"><span class="industry-tag-dot" style="background:#e3f2fd"></span> Finance</span>
+      <span class="industry-tag"><span class="industry-tag-dot" style="background:#e8edf5"></span> Government &amp; Community</span>
+      <span class="industry-tag"><span class="industry-tag-dot" style="background:#e8f5e9"></span> Health &amp; Wellness</span>
+      <span class="industry-tag"><span class="industry-tag-dot" style="background:#e6f7fa"></span> Hospitality &amp; Tourism</span>
+      <span class="industry-tag"><span class="industry-tag-dot" style="background:#f3e5f5"></span> Marketing &amp; Media</span>
+      <span class="industry-tag"><span class="industry-tag-dot" style="background:#ede7f6"></span> NFP / Community</span>
+      <span class="industry-tag"><span class="industry-tag-dot" style="background:#fef3e8"></span> Professional Services</span>
+      <span class="industry-tag"><span class="industry-tag-dot" style="background:#fff8e1"></span> Real Estate</span>
+      <span class="industry-tag"><span class="industry-tag-dot" style="background:#fbe9e7"></span> Retail</span>
+      <span class="industry-tag"><span class="industry-tag-dot" style="background:#e8eaf6"></span> Technology</span>
+      <span class="industry-tag"><span class="industry-tag-dot" style="background:#fce4ec"></span> Trades &amp; Construction</span>
+      <span class="industry-tag"><span class="industry-tag-dot" style="background:#e6f7fa"></span> Marine &amp; Maritime</span>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="resources-section" id="resources">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Support &amp; Resources</span>
+      <h2>You Don't Have to Figure It Out Alone</h2>
+      <p>Between the council, state government, and the SHBNG community, there's more support available to Shellharbour businesses than most people realise. Here's where to start.</p>
+    </div>
+    <div class="resources-grid">
+      <div class="resource-card">
+        <div class="resource-logo">
+          <img src="uploads/directory/logo-scc.png" alt="Shellharbour City Council"/>
+        </div>
+        <h4>Shellharbour City Council — Economic Development</h4>
+        <p>The council's Economic Development Unit supports local businesses with advice, connections, and partnerships. They run free one-hour business consultations in partnership with Service NSW and Sarina Russo Entrepreneurs — covering everything from funding access to business planning and compliance.</p>
+        <a href="https://www.shellharbour.nsw.gov.au/working-here/business-shellharbour-city" target="_blank" rel="noopener noreferrer" class="resource-link">
+          Visit Council Business Page
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+      <div class="resource-card">
+        <div class="resource-logo">
+          <img src="uploads/directory/logo-servicensw.png" alt="Service NSW"/>
+        </div>
+        <h4>Service NSW Business Bureau</h4>
+        <p>Free, personalised business support from the NSW Government. The Business Bureau helps with licences and permits, navigating government programs, finding grants and funding, NSW Government procurement opportunities, and specialist support for women, multicultural, and First Nations business owners.</p>
+        <a href="https://book.service.nsw.gov.au/services/business-bureau/landing/csr" target="_blank" rel="noopener noreferrer" class="resource-link">
+          Book a Free Consultation
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+      <div class="resource-card">
+        <div class="resource-logo">
+          <div class="resource-logo-text">SHBNG</div>
+        </div>
+        <h4>Shellharbour &amp; Beyond Networking Group</h4>
+        <p>The fastest way to tap into the local business community. Our monthly networking mornings bring together business owners, professionals, and community leaders from across the Shellharbour region. First visit is always free — come and see what it's about.</p>
+        <a href="index.html#events" class="resource-link">
+          See the Next Event
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="region-cta">
+  <div class="container">
+    <span class="section-tag">Join the Group</span>
+    <h2>This Is Why We Started SHBNG</h2>
+    <p>Shellharbour has all the ingredients for a thriving local business community. We built this group to give it a regular place to come together — every month, same café, no agenda except good conversation and real connections.</p>
+    <div class="region-cta-btns">
+      <a href="index.html#events" class="btn-primary">See the Next Event</a>
+      <a href="index.html#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="uploads/pasted-1776672992337-0.png" alt="Shellharbour &amp; Beyond Networking Group"/>
+      <p>Connecting local business, building community, and supporting each other — right here in Shellharbour.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#events">Events</a></li>
+        <li><a href="index.html#membership">Membership</a></li>
+        <li><a href="members.html">Directory</a></li>
+        <li><a href="region.html">Our Region</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Follow Us</h5>
+      <ul>
+        <li><a href="https://www.facebook.com/groups/1859999315387617" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+      </ul>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/groups/1859999315387617" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Shellharbour &amp; Beyond Networking Group. All rights reserved.</p>
+    <p class="footer-location">Shellharbour, NSW, Australia</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Mobile nav
+(function() {
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks  = document.getElementById('nav-links');
+  if (!hamburger || !navLinks) return;
+  function closeNav() { navLinks.classList.remove('nav-open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  hamburger.addEventListener('click', () => { const o = navLinks.classList.toggle('nav-open'); hamburger.classList.toggle('open',o); hamburger.setAttribute('aria-expanded',String(o)); document.body.style.overflow=o?'hidden':''; });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+})();
+</script>
+</body>
+</html>
