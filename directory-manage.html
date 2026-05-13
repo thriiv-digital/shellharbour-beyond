@@ -327,7 +327,7 @@ function applyFilters() {
   renderCards(filtered);
 }
 
-fetch('directory.json?v=' + Date.now())
+fetch('directory.json')
   .then(r => { if (!r.ok) throw new Error(); return r.json(); })
   .then(data => {
     all = data.slice().sort((a, b) => a.name.localeCompare(b.name));
