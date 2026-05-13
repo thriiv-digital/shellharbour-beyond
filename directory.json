@@ -186,7 +186,7 @@
     "id": "momentuum-ai",
     "name": "momentuum AI",
     "type": "Business Consulting",
-    "logo": "uploads/directory/logo-momentuum.png",
+    "logo": "",
     "address": "Ground Floor, Enterprise 1, Innovation Campus, Squires Way, North Wollongong NSW 2500",
     "phone": "0449 520 560",
     "email": "matt@momentuum.ai",
@@ -195,9 +195,7 @@
     "instagram": "",
     "linkedin": "https://www.linkedin.com/company/momentuum-ai-automation/",
     "images": [
-      "uploads/directory/momentuum1.png",
-      "uploads/directory/momentuum2.png",
-      "uploads/directory/momentuum3.jpg"
+      "uploads/directory/momentuum1.png"
     ],
     "description": "Your team is manually following up leads, chasing no-shows, answering the same questions, and copying data between systems. None of that requires a human. It needs automation. We do free consultation and look to find real solutions that will save you time and money.",
     "member_since": "2026"
