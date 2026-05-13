@@ -17,7 +17,7 @@
       "uploads/directory/ariels-images3.jpg",
       "uploads/directory/ariels-images4.webp",
       "uploads/directory/ariels-images5.jpg",
-      "uploads/directory/ariels-images6.jpg"
+      "uploads/directory/ariels-images6.jpeg"
     ],
     "description": "Our generous hosts at Shellharbour Civic Centre. Great coffee, great people. Ariel's Café is the warm, welcoming heart of the Shellharbour Civic Centre — the perfect spot for a networking catch-up over a great cup of coffee.",
     "member_since": "2026"
@@ -26,7 +26,7 @@
     "id": "artist-sarah-rowan",
     "name": "Artist Sarah Rowan",
     "type": "Arts & Creative",
-    "logo": "",
+    "logo": "uploads/directory/logo-rowan.png",
     "address": "South of Sydney, NSW",
     "phone": "",
     "email": "",
@@ -34,7 +34,11 @@
     "facebook": "https://www.facebook.com/artistsarahrowan",
     "instagram": "https://www.instagram.com/artistsarahrowan/",
     "linkedin": "https://www.linkedin.com/in/artistsarahrowan/",
-    "images": [],
+    "images": [
+      "uploads/directory/rowan-images.jpg",
+      "uploads/directory/rowan-images2.jpg",
+      "uploads/directory/rowan-images3.jpeg"
+    ],
     "description": "Sarah Rowan is an Australian speed painter and keynote speaker who brings live art to corporate events, fundraisers and conferences. Combining storytelling with real-time painting, she helps people and organisations rediscover their spark — and has raised hundreds of thousands of dollars for charity along the way.",
     "member_since": "2026"
   },
