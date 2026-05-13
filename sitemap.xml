@@ -1,62 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mattwilsonau.github.io/shellharbour-beyond/</loc>
+    <loc>https://shbng.com.au/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://mattwilsonau.github.io/shellharbour-beyond/members.html</loc>
+    <loc>https://shbng.com.au/members.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mattwilsonau.github.io/shellharbour-beyond/apply.html</loc>
+    <loc>https://shbng.com.au/apply.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mattwilsonau.github.io/shellharbour-beyond/member.html?id=ariels-cafe</loc>
+    <loc>https://shbng.com.au/member.html?id=ariels-cafe</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mattwilsonau.github.io/shellharbour-beyond/member.html?id=artist-sarah-rowan</loc>
+    <loc>https://shbng.com.au/member.html?id=artist-sarah-rowan</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mattwilsonau.github.io/shellharbour-beyond/member.html?id=conseek</loc>
+    <loc>https://shbng.com.au/member.html?id=conseek</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mattwilsonau.github.io/shellharbour-beyond/member.html?id=four-t-solutions</loc>
+    <loc>https://shbng.com.au/member.html?id=four-t-solutions</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mattwilsonau.github.io/shellharbour-beyond/member.html?id=growth-concept-development-services</loc>
+    <loc>https://shbng.com.au/member.html?id=growth-concept-development-services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mattwilsonau.github.io/shellharbour-beyond/member.html?id=scaffold-drafting-consultancy</loc>
+    <loc>https://shbng.com.au/member.html?id=momentuum-ai</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mattwilsonau.github.io/shellharbour-beyond/member.html?id=service-nsw</loc>
+    <loc>https://shbng.com.au/member.html?id=scaffold-drafting-consultancy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mattwilsonau.github.io/shellharbour-beyond/member.html?id=sharon-alva-photography</loc>
+    <loc>https://shbng.com.au/member.html?id=service-nsw</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mattwilsonau.github.io/shellharbour-beyond/member.html?id=shellharbour-city-council</loc>
+    <loc>https://shbng.com.au/member.html?id=sharon-alva-photography</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://shbng.com.au/member.html?id=shellharbour-city-council</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /directory-manage.html
 
-Sitemap: https://mattwilsonau.github.io/shellharbour-beyond/sitemap.xml
+Sitemap: https://shbng.com.au/sitemap.xml
