@@ -79,7 +79,7 @@ if (homepageGrid) {
   fetch('directory.json')
     .then(r => r.json())
     .then(data => {
-      const sorted = data.slice().sort((a, b) => a.name.localeCompare(b.name)).slice(0, 6);
+      const sorted = data.slice().sort(() => Math.random() - 0.5).slice(0, 6);
       homepageGrid.innerHTML = sorted.map(m => {
         const color = TYPE_COLORS[m.type] || '#f5f5f5';
         const thumbContent = m.logo
