@@ -87,7 +87,7 @@
     "id": "growth-concept-development-services",
     "name": "Growth Concept Development Services",
     "type": "Business Consulting",
-    "logo": "",
+    "logo": "uploads/directory/logo-gcds.png",
     "address": "Shellharbour, NSW",
     "phone": "+61 451 248 292",
     "email": "luke@growthcds.com.au",
@@ -95,7 +95,10 @@
     "facebook": "",
     "instagram": "",
     "linkedin": "https://www.linkedin.com/in/luke-griffin-30b1553b/",
-    "images": [],
+    "images": [
+      "uploads/directory/gcds1.webp",
+      "uploads/directory/gcds-3.jpg"
+    ],
     "description": "Growth Concept Development Services (GCDS) helps businesses and organisations grow through community engagement, commercial development and strategic partnerships. Drawing on nearly 30 years of experience in events and exhibitions, GCDS delivers tradeshows, networking events, project management and local activations across the region.",
     "member_since": "2026"
   },
@@ -123,7 +126,7 @@
     "id": "service-nsw",
     "name": "Service NSW",
     "type": "Government & Community",
-    "logo": "",
+    "logo": "uploads/directory/logo-servicensw.png",
     "address": "Multiple service centres across NSW",
     "phone": "13 77 88",
     "email": "",
@@ -131,7 +134,11 @@
     "facebook": "",
     "instagram": "",
     "linkedin": "",
-    "images": [],
+    "images": [
+      "uploads/directory/servicensw-1.jpeg",
+      "uploads/directory/service3.jpg",
+      "uploads/directory/service2.png"
+    ],
     "description": "Service NSW is the primary gateway for accessing NSW Government services online and in person. It helps residents and businesses manage vehicle registrations, driver licences, permits and a wide range of government transactions — as well as providing support for disaster relief, disability assistance and business programs.",
     "member_since": "2026"
   },
