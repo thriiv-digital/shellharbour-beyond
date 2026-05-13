@@ -328,15 +328,15 @@ nav.nav-compact.scrolled .nav-logo img { height: 72px; }
   background-size: cover; background-position: center; background-repeat: no-repeat;
 }
 .biz-card-logo-over {
-  position: absolute; top: calc(270px - 36px); right: 18px; z-index: 2;
-  width: 72px; height: 72px; border-radius: 50%;
+  position: absolute; top: calc(270px - 44px); right: 18px; z-index: 2;
+  width: 88px; height: 88px; border-radius: 50%;
   background: white; border: 3px solid white;
   box-shadow: 0 2px 10px rgba(0,0,0,0.15);
   overflow: hidden; display: flex; align-items: center; justify-content: center;
 }
 .biz-card-logo-over img { width: 100%; height: 100%; object-fit: cover; }
 .biz-card-logo-initial {
-  font-family: 'DM Serif Display', serif; font-size: 24px;
+  font-family: 'DM Serif Display', serif; font-size: 28px;
   font-weight: 700; color: var(--navy);
 }
 .biz-card-body { padding: 14px 18px 18px; padding-top: 28px; }
