@@ -135,7 +135,7 @@
     "id": "sharon-alva-photography",
     "name": "Sharon Alva Photography",
     "type": "Arts & Creative",
-    "logo": "",
+    "logo": "uploads/directory/logo-sharon-alva.png",
     "address": "Illawarra, Southern Highlands & Shoalhaven, NSW",
     "phone": "0410 579 748",
     "email": "sharon@sharonalvaphotography.com.au",
@@ -143,7 +143,11 @@
     "facebook": "https://www.facebook.com/sharonalvaphotography/",
     "instagram": "https://www.instagram.com/sharonalvaphotography/",
     "linkedin": "",
-    "images": [],
+    "images": [
+      "uploads/directory/sharon-image1.jpg",
+      "uploads/directory/sharon-image2.jpg",
+      "uploads/directory/sharon-image3.jpg"
+    ],
     "description": "Sharon Alva Photography specialises in creative portrait sessions across newborn, pregnancy, family and business photography. With 15 years of professional experience and a background in child and family nursing, Sharon creates relaxed, personalised sessions that capture genuine moments across the Illawarra, Southern Highlands and Shoalhaven.",
     "member_since": "2026"
   },
