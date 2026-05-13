@@ -145,7 +145,7 @@ nav.scrolled .nav-logo img { height: 101px; }
   border-radius: 50px; padding: 6px 16px;
   white-space: nowrap;
 }
-nav.scrolled .nav-event-pill { display: flex; }
+nav.scrolled .nav-event-pill { display: none; }
 
 /* ── INNER PAGE NAV (always compact) ── */
 nav.nav-compact { background: linear-gradient(to right, #ffffff 0%, #f0f4f7 100%); border-bottom: 1px solid var(--border); box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
