@@ -138,14 +138,14 @@ nav.scrolled .nav-logo img { height: 101px; }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 .nav-event-pill {
-  position: absolute; left: 50%; transform: translateX(-50%);
   display: none; align-items: center; gap: 7px;
   font-size: 13px; font-weight: 500; color: var(--navy);
   background: var(--teal-light); border: 1px solid var(--border);
   border-radius: 50px; padding: 6px 16px;
   white-space: nowrap;
+  flex-shrink: 0;
 }
-nav.scrolled .nav-event-pill { display: none; }
+nav.scrolled .nav-event-pill { display: flex; }
 
 /* ── INNER PAGE NAV (always compact) ── */
 nav.nav-compact { background: linear-gradient(to right, #ffffff 0%, #f0f4f7 100%); border-bottom: 1px solid var(--border); box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
