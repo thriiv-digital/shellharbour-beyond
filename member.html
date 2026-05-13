@@ -278,18 +278,12 @@ fetch('directory.json')
       ? `<img src="${m.logo}" alt="${m.name} logo" class="sidebar-logo"/>`
       : `<div class="sidebar-logo-initial">${m.name.trim()[0].toUpperCase()}</div>`;
 
-    // Gallery (up to 6 images)
-    const gallerySlots = 6;
-    let galleryHtml = '';
-    if (m.images && m.images.length) {
-      galleryHtml = m.images.slice(0, gallerySlots).map(src =>
-        `<img src="${src}" alt="${m.name}" class="gallery-img"/>`
-      ).join('');
-      const remaining = gallerySlots - m.images.length;
-      for (let i = 0; i < remaining; i++) galleryHtml += `<div class="gallery-placeholder">[ photo ]</div>`;
-    } else {
-      for (let i = 0; i < gallerySlots; i++) galleryHtml += `<div class="gallery-placeholder">[ photo ${i+1} ]</div>`;
-    }
+    // Gallery — only real images, hide section entirely if none
+    const realImages = (m.images || []).filter(Boolean);
+    const hasImages = realImages.length > 0;
+    const galleryHtml = realImages.slice(0, 6).map(src =>
+      `<img src="${src}" alt="${m.name}" class="gallery-img"/>`
+    ).join('');
 
     // Obfuscate email against bots — split at @ and encode dots
     function obfEmail(e) {
@@ -323,8 +317,7 @@ fetch('directory.json')
             <p style="font-size:16px;color:var(--text-muted);line-height:1.75">${m.description}</p>
           </div>
           <div class="profile-gallery">
-            <h2>Photos</h2>
-            <div class="gallery-grid">${galleryHtml}</div>
+            ${hasImages ? `<h2>Photos</h2><div class="gallery-grid">${galleryHtml}</div>` : ''}
             <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
               <a href="apply.html#update" class="update-listing-link">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
