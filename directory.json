@@ -3,7 +3,7 @@
     "id": "ariels-cafe",
     "name": "Ariel's Café",
     "type": "Hospitality",
-    "logo": "",
+    "logo": "uploads/directory/logo-ariels.jpg",
     "address": "Shellharbour Civic Centre, Shellharbour NSW 2529",
     "phone": "0481 997 566",
     "email": "shellharbour@arielscoffee.com.au",
@@ -11,7 +11,14 @@
     "facebook": "https://facebook.com/ariels.coffee",
     "instagram": "https://instagram.com/arielswarrawong",
     "linkedin": "",
-    "images": [],
+    "images": [
+      "uploads/directory/ariels-images.jpg",
+      "uploads/directory/ariels-images2.jpg",
+      "uploads/directory/ariels-images3.jpg",
+      "uploads/directory/ariels-images4.webp",
+      "uploads/directory/ariels-images5.jpg",
+      "uploads/directory/ariels-images6.jpg"
+    ],
     "description": "Our generous hosts at Shellharbour Civic Centre. Great coffee, great people. Ariel's Café is the warm, welcoming heart of the Shellharbour Civic Centre — the perfect spot for a networking catch-up over a great cup of coffee.",
     "member_since": "2026"
   },
