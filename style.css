@@ -320,14 +320,26 @@ nav.nav-compact.scrolled .nav-logo img { height: 72px; }
   background: white; border-radius: 16px; overflow: hidden;
   box-shadow: 0 2px 12px rgba(26,58,107,0.07);
   transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
 }
 .biz-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(26,58,107,0.13); }
 .biz-card-thumb {
-  height: 160px;
-  display: flex; align-items: center; justify-content: center;
+  height: 320px;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
 }
-.biz-thumb-label { font-family: monospace; font-size: 11px; color: #7a9aaa; padding: 10px; text-align: center; }
-.biz-card-body { padding: 18px; }
+.biz-card-logo-over {
+  position: absolute; top: calc(320px - 30px); right: 18px; z-index: 2;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: white; border: 3px solid white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  overflow: hidden; display: flex; align-items: center; justify-content: center;
+}
+.biz-card-logo-over img { width: 100%; height: 100%; object-fit: contain; padding: 5px; }
+.biz-card-logo-initial {
+  font-family: 'DM Serif Display', serif; font-size: 22px;
+  font-weight: 700; color: var(--navy);
+}
+.biz-card-body { padding: 18px; padding-top: 40px; }
 .biz-tag {
   display: inline-block; font-size: 10px; font-weight: 600;
   letter-spacing: 0.08em; text-transform: uppercase;

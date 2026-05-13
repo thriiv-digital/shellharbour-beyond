@@ -82,14 +82,17 @@ if (homepageGrid) {
       const sorted = data.slice().sort(() => Math.random() - 0.5).slice(0, 6);
       homepageGrid.innerHTML = sorted.map(m => {
         const color = TYPE_COLORS[m.type] || '#f5f5f5';
-        const thumbContent = m.logo
-          ? `<img src="${m.logo}" alt="${m.name}" style="height:70px;object-fit:contain;padding:8px"/>`
-          : `<span class="biz-thumb-label">[ business logo / photo ]</span>`;
+        const coverImg = m.images && m.images.filter(Boolean)[0];
+        const thumbBg = coverImg
+          ? `url('${coverImg}') center/cover no-repeat`
+          : `repeating-linear-gradient(45deg,${color},${color} 8px,white 8px,white 16px)`;
+        const logoOver = m.logo
+          ? `<div class="biz-card-logo-over"><img src="${m.logo}" alt="${m.name}"/></div>`
+          : `<div class="biz-card-logo-over biz-card-logo-initial">${m.name.trim()[0].toUpperCase()}</div>`;
         return `
           <a href="member.html?id=${m.id}" class="biz-card" style="text-decoration:none;color:inherit">
-            <div class="biz-card-thumb" style="background:repeating-linear-gradient(45deg,${color},${color} 8px,white 8px,white 16px)">
-              ${thumbContent}
-            </div>
+            <div class="biz-card-thumb" style="background:${thumbBg}"></div>
+            ${logoOver}
             <div class="biz-card-body">
               <span class="biz-tag">${m.type}</span>
               <h4>${m.name}</h4>
