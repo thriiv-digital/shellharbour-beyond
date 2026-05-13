@@ -60,6 +60,13 @@
   <style>
     /* ── REGION PAGE ── */
 
+    /* Nav: always show scrolled (white) state — no transparent over dark hero */
+    #main-nav { background: linear-gradient(to right, #ffffff 0%, #f0f4f7 100%) !important; border-bottom: 1px solid var(--border) !important; box-shadow: 0 2px 20px rgba(0,0,0,0.08) !important; }
+    #main-nav .nav-logo img { height: 101px !important; }
+    #main-nav .nav-event-pill { display: none !important; }
+    #main-nav .nav-links a { color: var(--text); }
+    #main-nav .nav-hamburger span { background: var(--navy); }
+
     /* Page hero — navy gradient, no countdown widget */
     .region-hero {
       background: linear-gradient(135deg, var(--navy) 0%, #1e4976 60%, var(--teal-mid) 100%);
@@ -102,7 +109,7 @@
       line-height: 1;
       margin-bottom: 6px;
     }
-    .stat-num span { color: var(--teal-mid); }
+    .stat-num span { color: inherit; }
     .stat-label { font-size: 0.85rem; color: var(--text-mid); line-height: 1.4; font-weight: 500; }
     .stat-source { font-size: 0.72rem; color: #b0b8c4; margin-top: 4px; }
     @media (max-width: 700px) {
@@ -238,18 +245,12 @@
     }
     .resource-card:hover { box-shadow: 0 4px 20px rgba(26,58,107,0.1); border-color: var(--teal-mid); }
     .resource-logo {
-      height: 48px;
+      height: 80px;
       margin-bottom: 20px;
       display: flex;
       align-items: center;
     }
-    .resource-logo img { max-height: 48px; max-width: 160px; object-fit: contain; object-position: left; }
-    .resource-logo-text {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      color: var(--navy);
-      font-weight: 700;
-    }
+    .resource-logo img { max-height: 80px; max-width: 200px; object-fit: contain; object-position: left; }
     .resource-card h4 { font-size: 1rem; color: var(--navy); margin-bottom: 10px; }
     .resource-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; flex: 1; margin-bottom: 20px; }
     .resource-card a.resource-link {
@@ -497,7 +498,7 @@
       </div>
       <div class="resource-card">
         <div class="resource-logo">
-          <div class="resource-logo-text">SHBNG</div>
+          <img src="uploads/logo-shellharbour-beyond-networking-group.png" alt="Shellharbour &amp; Beyond Networking Group"/>
         </div>
         <h4>Shellharbour &amp; Beyond Networking Group</h4>
         <p>The fastest way to tap into the local business community. Our monthly networking mornings bring together business owners, professionals, and community leaders from across the Shellharbour region. First visit is always free — come and see what it's about.</p>
