@@ -159,7 +159,7 @@
     "id": "shellharbour-city-council",
     "name": "Shellharbour City Council",
     "type": "Government & Community",
-    "logo": "",
+    "logo": "uploads/directory/logo-scc.png",
     "address": "Civic Centre, Shellharbour NSW",
     "phone": "02 4221 6111",
     "email": "council@shellharbour.nsw.gov.au",
@@ -167,7 +167,11 @@
     "facebook": "https://www.facebook.com/ShellharbourCC",
     "instagram": "https://www.instagram.com/shellharbourcitycouncil/",
     "linkedin": "https://au.linkedin.com/company/shellharbour-city-council",
-    "images": [],
+    "images": [
+      "uploads/directory/scc-1.jpg",
+      "uploads/directory/scc-images2.webp",
+      "uploads/directory/scc-images3.jpg"
+    ],
     "description": "Shellharbour City Council is the local government authority serving the Shellharbour region, delivering services across planning and development, community programs, environmental management and local governance. The Council is a proud partner in building a vibrant, connected community across the Shellharbour Local Government Area.",
     "member_since": "2026"
   }
