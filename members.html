@@ -456,19 +456,17 @@ fetch('directory.json')
       applyFilters();
     });
     renderGrid(allMembers);
-  });
-
-document.getElementById('search-input').addEventListener('input', e => {
-  searchTerm = e.target.value.trim();
-  applyFilters();
-});
-
   })
   .catch(() => {
     document.getElementById('members-skeleton').style.display = 'none';
     document.getElementById('members-grid').style.display = 'grid';
     document.getElementById('members-grid').innerHTML = '<div class="fetch-error" style="grid-column:1/-1"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><h3>Couldn\'t load the directory</h3><p>Please refresh the page or try again shortly.</p></div>';
   });
+
+document.getElementById('search-input').addEventListener('input', e => {
+  searchTerm = e.target.value.trim();
+  applyFilters();
+});
 
 // Nav scroll
 const nav = document.getElementById('main-nav');
