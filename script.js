@@ -6,7 +6,7 @@ window.addEventListener('scroll', () => {
 nav.classList.toggle('scrolled', window.scrollY > 60);
 
 // ── COUNTDOWN ──
-const TARGET = new Date('2026-05-14T10:00:00+10:00').getTime();
+const TARGET = new Date('2026-06-11T10:00:00+10:00').getTime();
 const cdGrid = document.getElementById('countdown-grid');
 const cdExpired = document.getElementById('countdown-expired');
 const cdDays = document.getElementById('cd-days');
