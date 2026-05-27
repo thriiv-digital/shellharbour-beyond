@@ -185,6 +185,26 @@
     "member_since": "2026"
   },
     {
+    "id": "embarc-employment",
+    "name": "embarc Employment",
+    "type": "NFP / Community",
+    "logo": "uploads/directory/logo-embarc.jpg",
+    "address": "Shellharbour, NSW",
+    "phone": "1300 771 458",
+    "email": "",
+    "website": "https://embarc.org.au",
+    "facebook": "https://www.facebook.com/embarcEmployment",
+    "instagram": "https://www.instagram.com/embarcEmployment/",
+    "linkedin": "https://www.linkedin.com/company/embarcEmployment",
+    "images": [
+      "uploads/directory/pic-1-embarc.jpg",
+      "uploads/directory/pic-2-embarc.jpg",
+      "uploads/directory/pic-3-embarc.jpg"
+    ],
+    "description": "embarc Employment is a dedicated Disability Employment Services (DES) provider helping job seekers with disability, injury or a health condition find meaningful, lasting work — and supporting local employers to build more inclusive, diverse teams. A service of The Disability Trust, embarc delivers personalised, strength-based support from career exploration right through to job placement and beyond.",
+    "member_since": "2026"
+  },
+  {
     "id": "momentuum-ai",
     "name": "momentuum AI",
     "type": "Business Consulting",
