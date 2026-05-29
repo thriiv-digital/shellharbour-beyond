@@ -245,6 +245,26 @@
     "member_since": "2026"
   },
   {
+    "id": "modified-photography",
+    "name": "Modified Photography",
+    "type": "Arts & Creative",
+    "logo": "uploads/directory/logo-modified-photography.png",
+    "address": "Shellharbour, NSW",
+    "phone": "+61 404 764 765",
+    "email": "luke@modifiedphotography.com.au",
+    "website": "https://modifiedphotography.com.au",
+    "facebook": "https://www.facebook.com/modifiedau",
+    "instagram": "https://www.instagram.com/modifiedau/",
+    "linkedin": "https://www.linkedin.com/company/modified-photography/",
+    "images": [
+      "uploads/directory/modified-1.jpg",
+      "uploads/directory/modified-2.jpg",
+      "uploads/directory/modified-3.jpg"
+    ],
+    "description": "Modified Photography delivers professional photography and videography for businesses and brands across Australia. Services span commercial and brand photography, corporate event coverage, product photography and business video production — all designed to create compelling visual content that drives real results.",
+    "member_since": "2026"
+  },
+  {
     "id": "momentuum-ai",
     "name": "momentuum AI",
     "type": "Business Consulting",
