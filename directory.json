@@ -225,6 +225,26 @@
     "member_since": "2026"
   },
   {
+    "id": "professionals-shell-coast",
+    "name": "The Professionals Shell Coast",
+    "type": "Real Estate",
+    "logo": "uploads/directory/logo-professionals.png",
+    "address": "60A Central Avenue, Oak Flats NSW 2529",
+    "phone": "02 4293 1937",
+    "email": "",
+    "website": "https://www.professionalsshellcoast.com.au",
+    "facebook": "https://www.facebook.com/Professionals-Shell-Coast-104235618350261",
+    "instagram": "https://www.instagram.com/professionals_shell_coast/",
+    "linkedin": "",
+    "images": [
+      "uploads/directory/professionals-1.webp",
+      "uploads/directory/professionals-2.jpg",
+      "uploads/directory/professionals-3.jpg"
+    ],
+    "description": "The Professionals Shell Coast is a locally owned real estate agency serving buyers, sellers, investors and renters across the NSW South Coast. Led by Pam Muller — with over 40 years of experience in the region — the agency combines deep local knowledge with the marketing reach of the national Professionals network to deliver smarter results for every property transaction.",
+    "member_since": "2026"
+  },
+  {
     "id": "momentuum-ai",
     "name": "momentuum AI",
     "type": "Business Consulting",
