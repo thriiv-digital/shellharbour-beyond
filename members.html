@@ -56,8 +56,11 @@
       position: sticky; top: 0; z-index: 50;
     }
     .members-controls-inner {
-      display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+      display: flex; flex-direction: column; gap: 12px;
       max-width: 1400px; margin: 0 auto; padding: 0 24px;
+    }
+    .controls-top {
+      display: flex; align-items: center; gap: 16px;
     }
     .search-box {
       display: flex; align-items: center; gap: 10px;
@@ -79,7 +82,7 @@
     .filter-btn:hover { border-color: var(--teal); color: var(--teal-mid); }
     .filter-btn.active { background: var(--navy); border-color: var(--navy); color: white; }
     .member-count {
-      margin-left: auto; font-size: 13px; color: var(--text-muted); white-space: nowrap;
+      margin-left: auto; font-size: 13px; color: var(--text-muted); white-space: nowrap; flex-shrink: 0;
     }
 
     .members-body { padding: 48px 0 80px; background: var(--sand); }
@@ -282,14 +285,16 @@
 <!-- CONTROLS -->
 <div class="members-controls">
   <div class="members-controls-inner">
-    <div class="search-box">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" id="search-input" placeholder="Search members…" aria-label="Search members"/>
+    <div class="controls-top">
+      <div class="search-box">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="search-input" placeholder="Search members…" aria-label="Search members"/>
+      </div>
+      <span class="member-count" id="member-count"></span>
     </div>
     <div class="filter-btns" id="filter-btns">
       <button class="filter-btn active" data-type="all">All</button>
     </div>
-    <span class="member-count" id="member-count"></span>
   </div>
 </div>
 
