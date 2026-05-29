@@ -205,6 +205,26 @@
     "member_since": "2026"
   },
   {
+    "id": "smart-financial",
+    "name": "Smart Financial",
+    "type": "Finance",
+    "logo": "uploads/directory/logo-smart-financial.png",
+    "address": "162-172 Shellharbour Rd, Warilla NSW 2528",
+    "phone": "02 4295 3331",
+    "email": "admin@smartfinancial.com.au",
+    "website": "https://smartfinancial.com.au",
+    "facebook": "https://www.facebook.com/smartfinancialshellharbour/",
+    "instagram": "",
+    "linkedin": "https://www.linkedin.com/company/smart-financial-illawarra/",
+    "images": [
+      "uploads/directory/smart-1.jpg",
+      "uploads/directory/smart-2.jpg",
+      "uploads/directory/smart-4.jpg"
+    ],
+    "description": "Smart Financial is a Shellharbour-based financial services firm offering a comprehensive suite of advice and services under one roof — from retirement planning, superannuation and investment advice to insurance, estate planning, accounting and tax, through to lending and finance broking. With offices in Warilla and Nowra, their team helps individuals and families across the Illawarra and South Coast achieve greater financial clarity and confidence.",
+    "member_since": "2026"
+  },
+  {
     "id": "momentuum-ai",
     "name": "momentuum AI",
     "type": "Business Consulting",
