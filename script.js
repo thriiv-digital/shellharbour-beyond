@@ -1,3 +1,24 @@
+// ── ABOUT SLIDESHOW ──
+(function () {
+  const slides = document.querySelectorAll('.about-slide');
+  if (!slides.length) return;
+  let current = 0;
+  let timer;
+
+  function next() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }
+
+  function start() { timer = setInterval(next, 3000); }
+  function stop()  { clearInterval(timer); }
+
+  const show = document.querySelector('.about-slideshow');
+  if (show) { show.addEventListener('mouseenter', stop); show.addEventListener('mouseleave', start); }
+  start();
+})();
+
 // ── NAV SCROLL ──
 const nav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => {
