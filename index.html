@@ -651,6 +651,23 @@
     } catch { btn.textContent = 'Send Message'; btn.disabled = false; alert('Something went wrong — please try again.'); }
   });
 })();
+
+// About section slideshow
+(function() {
+  const slides = document.querySelectorAll('.about-slide');
+  if (slides.length < 2) return;
+  let current = 0, timer;
+  function advance() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }
+  function start() { timer = setInterval(advance, 3000); }
+  function stop()  { clearInterval(timer); }
+  const wrap = document.querySelector('.about-slideshow');
+  if (wrap) { wrap.addEventListener('mouseenter', stop); wrap.addEventListener('mouseleave', start); }
+  start();
+})();
 </script>
 </body>
 </html>
