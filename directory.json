@@ -283,5 +283,27 @@
     ],
     "description": "Your team is manually following up leads, chasing no-shows, answering the same questions, and copying data between systems. None of that requires a human. It needs automation. We do free consultation and look to find real solutions that will save you time and money.",
     "member_since": "2026"
+  },
+  {
+    "id": "thriiv-digital",
+    "name": "thriiv digital",
+    "type": "Marketing",
+    "logo": "uploads/directory/favicon-thriiv.png",
+    "address": "SmartSpace, 1 Innovation Way, North Wollongong NSW 2500",
+    "phone": "(02) 4003 4446",
+    "email": "",
+    "website": "https://thriivdigital.com.au",
+    "facebook": "",
+    "instagram": "",
+    "linkedin": "",
+    "images": [
+      "uploads/directory/thriiv-digital-ava-1.jpg",
+      "uploads/directory/thriiv-digital-ava-2.jpg",
+      "uploads/directory/thriiv-digital-ava-3.jpg",
+      "uploads/directory/thriiv-digital-ava-4.jpg",
+      "uploads/directory/thriiv-digital-ava-5.jpg"
+    ],
+    "description": "thriiv digital is a Wollongong-based digital growth agency helping local businesses stand out online and win more clients. From conversion-focused web design and local SEO to lead generation systems and digital strategy, the team at thriiv builds the online presence your business needs to grow — right here in the Illawarra.",
+    "member_since": "2026"
   }
 ]

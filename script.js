@@ -95,11 +95,13 @@ const TYPE_COLORS = {
   'Trades':                '#fce4ec',
   'Other':                 '#f5f5f5'
 };
+let _membersData = [];
 const homepageGrid = document.getElementById('homepage-directory-grid');
 if (homepageGrid) {
   fetch('directory.json')
     .then(r => r.json())
     .then(data => {
+      _membersData = data;
       const sorted = data.slice().sort(() => Math.random() - 0.5).slice(0, 6);
       homepageGrid.innerHTML = sorted.map(m => {
         const color = TYPE_COLORS[m.type] || '#f5f5f5';
@@ -111,7 +113,7 @@ if (homepageGrid) {
           ? `<div class="biz-card-logo-over"><img src="${m.logo}" alt="${m.name}"/></div>`
           : `<div class="biz-card-logo-over biz-card-logo-initial">${m.name.trim()[0].toUpperCase()}</div>`;
         return `
-          <a href="member.html?id=${m.id}" class="biz-card" style="text-decoration:none;color:inherit">
+          <a href="member.html?id=${m.id}" class="biz-card" data-member-id="${m.id}" style="text-decoration:none;color:inherit">
             <div class="biz-card-thumb" style="background:${thumbBg}"></div>
             ${logoOver}
             <div class="biz-card-body">
@@ -121,6 +123,14 @@ if (homepageGrid) {
             </div>
           </a>`;
       }).join('');
+      homepageGrid.addEventListener('click', e => {
+        const card = e.target.closest('[data-member-id]');
+        if (card && typeof openMemberModal === 'function') {
+          e.preventDefault();
+          const m = _membersData.find(x => x.id === card.dataset.memberId);
+          if (m) openMemberModal(m);
+        }
+      });
     });
 }
 

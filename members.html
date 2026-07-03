@@ -100,7 +100,9 @@
     .member-card-header {
       height: 270px; overflow: hidden; flex-shrink: 0;
       background-size: cover; background-position: center; background-repeat: no-repeat;
+      transition: transform 0.4s ease;
     }
+    .member-card:hover .member-card-header { transform: scale(1.07); }
     .member-card-logo-over {
       position: absolute; top: calc(270px - 44px); right: 20px; z-index: 2;
       width: 88px; height: 88px; border-radius: 50%;
@@ -314,6 +316,7 @@
   <a href="member.html?id=sharon-alva-photography">Sharon Alva Photography</a>
   <a href="member.html?id=shellharbour-city-council">Shellharbour City Council</a>
   <a href="member.html?id=smart-financial">Smart Financial</a>
+  <a href="member.html?id=thriiv-digital">thriiv digital</a>
 </nav>
 
 <!-- MEMBERS GRID -->
@@ -396,9 +399,11 @@
   <div class="footer-bottom">
     <p>© 2026 Shellharbour &amp; Beyond Networking Group. All rights reserved.</p>
     <p class="footer-location">Shellharbour, NSW, Australia</p>
+    <p class="footer-credit">Web design by <a href="https://thriivdigital.com.au" target="_blank" rel="noopener noreferrer">thriiv.digital</a></p>
   </div>
 </footer>
 
+<script src="member-modal.js"></script>
 <script>
 const TYPE_COLORS = {
   'Arts & Creative':      '#fce8f3',
@@ -443,7 +448,7 @@ function renderGrid(members) {
       : `<div class="member-card-logo-over"><span class="member-card-logo-over-initial">${getInitial(m.name)}</span></div>`;
     const desc = m.description.length > 160 ? m.description.slice(0, 157) + '…' : m.description;
     return `
-      <a href="member.html?id=${m.id}" class="member-card" style="text-decoration:none;color:inherit">
+      <a href="member.html?id=${m.id}" class="member-card" data-member-id="${m.id}" style="text-decoration:none;color:inherit">
         <div class="member-card-header" style="background:${headerBg}"></div>
         ${logoOver}
         <div class="member-card-body">
@@ -504,6 +509,14 @@ fetch('directory.json')
       applyFilters();
     });
     renderGrid(allMembers);
+    document.getElementById('members-grid').addEventListener('click', e => {
+      const card = e.target.closest('[data-member-id]');
+      if (card && typeof openMemberModal === 'function') {
+        e.preventDefault();
+        const m = allMembers.find(x => x.id === card.dataset.memberId);
+        if (m) openMemberModal(m);
+      }
+    });
   })
   .catch(() => {
     document.getElementById('members-skeleton').style.display = 'none';

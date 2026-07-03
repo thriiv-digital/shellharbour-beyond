@@ -455,6 +455,11 @@ footer { background: var(--navy-dark); padding: 48px 0 24px; }
 }
 .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); }
 .footer-location { color: rgba(255,255,255,0.25) !important; }
+.footer-credit { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 4px; }
+.footer-credit a { color: rgba(255,255,255,0.38); text-decoration: none; }
+.footer-credit a:hover { color: rgba(255,255,255,0.7); }
+.biz-card-thumb { transition: transform 0.4s ease; }
+.biz-card:hover .biz-card-thumb { transform: scale(1.07); }
 .footer-socials { display: flex; gap: 10px; margin-top: 16px; }
 .footer-social {
   width: 36px; height: 36px; border-radius: 50%;
