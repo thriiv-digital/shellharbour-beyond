@@ -76,7 +76,7 @@
     }
     .gallery-img {
       width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
-      border-radius: 12px; display: block;
+      border-radius: 12px; display: block; cursor: zoom-in;
     }
     .gallery-placeholder {
       width: 100%; aspect-ratio: 1 / 1; border-radius: 12px;
@@ -146,6 +146,11 @@
     }
     .not-found h2 { font-size: 24px; color: var(--navy); margin-bottom: 12px; }
 
+    #img-lightbox { position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:2000;display:none;align-items:center;justify-content:center;cursor:zoom-out;padding:20px; }
+    #img-lightbox.open { display:flex; }
+    #img-lightbox img { max-width:90vw;max-height:90vh;object-fit:contain;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,0.5); }
+    #img-lightbox-close { position:absolute;top:20px;right:20px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;color:white;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s; }
+    #img-lightbox-close:hover { background:rgba(255,255,255,0.3); }
     @media (max-width: 800px) {
       .profile-grid { grid-template-columns: 1fr; }
       .profile-sidebar { position: static; }
@@ -368,6 +373,25 @@ fetch('directory.json')
         </aside>
       </div>`;
   });
+
+// ── GALLERY LIGHTBOX ──
+(function() {
+  const lb  = document.createElement('div');
+  lb.id = 'img-lightbox';
+  lb.innerHTML = '<button id="img-lightbox-close" aria-label="Close">&times;</button><img id="img-lightbox-img" src="" alt=""/>';
+  document.body.appendChild(lb);
+  function close() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  lb.addEventListener('click', e => { if (e.target === lb || e.target.id === 'img-lightbox-close') close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  document.addEventListener('click', e => {
+    const img = e.target.closest('.gallery-img');
+    if (img) {
+      document.getElementById('img-lightbox-img').src = img.src;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+})();
 
 // Nav scroll
 const nav = document.getElementById('main-nav');

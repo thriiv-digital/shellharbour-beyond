@@ -509,14 +509,6 @@ fetch('directory.json')
       applyFilters();
     });
     renderGrid(allMembers);
-    document.getElementById('members-grid').addEventListener('click', e => {
-      const card = e.target.closest('[data-member-id]');
-      if (card && typeof openMemberModal === 'function') {
-        e.preventDefault();
-        const m = allMembers.find(x => x.id === card.dataset.memberId);
-        if (m) openMemberModal(m);
-      }
-    });
   })
   .catch(() => {
     document.getElementById('members-skeleton').style.display = 'none';
