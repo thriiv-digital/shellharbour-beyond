@@ -305,5 +305,28 @@
     ],
     "description": "thriiv digital is a Wollongong-based digital growth agency helping local businesses stand out online and win more clients. From conversion-focused web design and local SEO to lead generation systems and digital strategy, the team at thriiv builds the online presence your business needs to grow — right here in the Illawarra.",
     "member_since": "2026"
+  },
+  {
+    "id": "simplydraft",
+    "name": "SimplyDraft",
+    "type": "Professional Services",
+    "logo": "",
+    "address": "Jamberoo, NSW (serving clients throughout NSW)",
+    "phone": "",
+    "email": "hello@simplydraft.com.au",
+    "website": "https://simplydraft.com.au",
+    "facebook": "",
+    "instagram": "https://www.instagram.com/wesimplydraft/",
+    "linkedin": "",
+    "images": [
+      "uploads/directory/simplydraft-cameron-rowe.jpg",
+      "uploads/directory/simplydraft-change-of-use.jpg",
+      "uploads/directory/simplydraft-deck-wollongong.jpg",
+      "uploads/directory/simplydraft-pool.png",
+      "uploads/directory/simplydraft-pool-2.png",
+      "uploads/directory/simplydraft-shed.jpg"
+    ],
+    "description": "SimplyDraft is a Jamberoo-based drafting service helping homeowners and builders across NSW bring their residential projects to life. From decks, pools and sheds to change of use applications and new builds, Cameron Rowe delivers clear, council-ready drawings that simplify the DA and CDC approval process — start to finish.",
+    "member_since": "2026"
   }
 ]
