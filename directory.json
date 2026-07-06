@@ -306,6 +306,24 @@
     "member_since": "2026"
   },
   {
+    "id": "webster-building",
+    "name": "Webster Building",
+    "type": "Trades",
+    "logo": "uploads/directory/logo-webster-building.png",
+    "address": "Shellharbour, NSW (serving the Illawarra region)",
+    "phone": "0411 357 189",
+    "email": "hello@websterbuilding.com.au",
+    "website": "https://websterbuilding.com.au",
+    "facebook": "https://www.facebook.com/profile.php?id=61558741212072",
+    "instagram": "https://www.instagram.com/websterbuilding/",
+    "linkedin": "",
+    "images": [
+      "uploads/directory/webster-building-1.jpg"
+    ],
+    "description": "Webster Building is a Shellharbour-based renovation builder serving homeowners across the Illawarra. Led by Lachy Webster, the team specialises in decks and pergolas, fencing, flooring, and fireplace and mantel installations — delivering quality craftsmanship with fully qualified, insured tradespeople on every job. Whether you're transforming an outdoor entertaining area or adding a feature fireplace, Webster Building brings skill and attention to detail to residential renovations of all sizes across Shellharbour, Wollongong, Kiama, Dapto and surrounds.",
+    "member_since": "2026"
+  },
+  {
     "id": "simplydraft",
     "name": "SimplyDraft",
     "type": "Professional Services",
