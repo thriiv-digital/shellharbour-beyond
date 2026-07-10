@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Gallery — Shellharbour &amp; Beyond Networking Group</title>
+  <meta name="description" content="Photos from Shellharbour &amp; Beyond Networking Group events. Photography by Luke Neofytou of Modified Photography."/>
+  <link rel="icon" type="image/png" href="uploads/logo-shellharbour-beyond-networking-group.png"/>
+  <link rel="canonical" href="https://shbng.com.au/gallery.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Event Gallery — Shellharbour &amp; Beyond Networking Group"/>
+  <meta property="og:description" content="Photos from SHBNG networking events. Photography by Luke Neofytou of Modified Photography."/>
+  <meta property="og:url" content="https://shbng.com.au/gallery.html"/>
+  <meta property="og:image" content="https://shbng.com.au/uploads/events/MP107542SHBNG20260709.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── GALLERY HERO ── */
+    .gallery-hero {
+      background: linear-gradient(160deg, var(--navy) 0%, #1e4a82 60%, #163d70 100%);
+      padding: 120px 0 60px; text-align: center;
+    }
+    .gallery-hero .section-tag {
+      background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85);
+      border-radius: 50px; padding: 4px 14px; border: none;
+    }
+    .gallery-hero h1 {
+      font-size: clamp(30px, 5vw, 52px); color: white;
+      margin: 16px 0 12px; line-height: 1.15;
+    }
+    .gallery-hero-meta {
+      font-size: 16px; color: rgba(255,255,255,0.65); margin-bottom: 14px;
+    }
+    .gallery-hero-meta span { margin: 0 8px; opacity: 0.4; }
+    .gallery-photo-credit {
+      font-size: 13px; color: rgba(255,255,255,0.5);
+    }
+    .gallery-photo-credit a {
+      color: rgba(255,255,255,0.75); text-decoration: underline;
+      text-decoration-color: rgba(255,255,255,0.3); transition: color 0.2s;
+    }
+    .gallery-photo-credit a:hover { color: white; }
+
+    /* ── FILTER BAR ── */
+    .gallery-filter-bar {
+      background: var(--sand); border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .gallery-filter-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .gallery-filter-label {
+      font-size: 12px; font-weight: 600; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.06em; margin-right: 4px;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: white; border: 1.5px solid var(--border);
+      border-radius: 50px; padding: 6px 16px;
+      font-size: 13px; font-weight: 500; color: var(--text-muted);
+      cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+    }
+    .filter-chip:hover { border-color: var(--navy); color: var(--navy); }
+    .filter-chip.active {
+      background: var(--navy); border-color: var(--navy);
+      color: white;
+    }
+    .filter-chip .chip-count {
+      background: rgba(255,255,255,0.2); border-radius: 50px;
+      padding: 1px 7px; font-size: 11px; font-weight: 600;
+    }
+    .filter-chip:not(.active) .chip-count {
+      background: var(--sand); color: var(--text-muted);
+    }
+
+    /* ── MASONRY GALLERY ── */
+    .gallery-section { background: white; padding: 40px 0 80px; }
+    .gallery-masonry {
+      columns: 3; column-gap: 12px;
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    }
+    .gallery-item {
+      break-inside: avoid; margin-bottom: 12px;
+      position: relative; overflow: hidden;
+      border-radius: 10px; cursor: zoom-in;
+      background: var(--sand);
+    }
+    .gallery-item img {
+      width: 100%; height: auto; display: block;
+      transition: transform 0.4s ease;
+      border-radius: 10px;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,25,60,0.72) 0%, transparent 50%);
+      border-radius: 10px;
+      opacity: 0; transition: opacity 0.3s ease;
+      display: flex; align-items: flex-end; padding: 14px;
+    }
+    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+    .gallery-item-date {
+      color: white; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.04em; display: flex; align-items: center; gap: 6px;
+    }
+    .gallery-item-date svg { opacity: 0.75; }
+
+    /* ── LIGHTBOX ── */
+    #gallery-lightbox {
+      position: fixed; inset: 0; z-index: 3000;
+      background: rgba(5,15,40,0.96);
+      display: none; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    #gallery-lightbox.open { display: flex; }
+    #lightbox-close {
+      position: absolute; top: 20px; right: 20px;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,0.12); border: none;
+      color: white; font-size: 24px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s; z-index: 1;
+    }
+    #lightbox-close:hover { background: rgba(255,255,255,0.22); }
+    #lightbox-img {
+      max-width: 90vw; max-height: 80vh;
+      object-fit: contain; border-radius: 8px;
+      box-shadow: 0 16px 60px rgba(0,0,0,0.6);
+      display: block;
+    }
+    #lightbox-meta {
+      margin-top: 18px; text-align: center;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    #lightbox-meta .lb-event {
+      font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.85);
+    }
+    #lightbox-meta .lb-credit {
+      font-size: 12px; color: rgba(255,255,255,0.45);
+    }
+    #lightbox-meta .lb-credit a {
+      color: rgba(255,255,255,0.65); text-decoration: underline;
+      text-decoration-color: rgba(255,255,255,0.25); transition: color 0.2s;
+    }
+    #lightbox-meta .lb-credit a:hover { color: white; }
+
+    /* ── NAV PREV/NEXT ── */
+    .lb-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(255,255,255,0.1); border: none;
+      color: white; font-size: 20px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s; z-index: 1;
+    }
+    .lb-arrow:hover { background: rgba(255,255,255,0.2); }
+    #lb-prev { left: 20px; }
+    #lb-next { right: 20px; }
+
+    @media (max-width: 900px) { .gallery-masonry { columns: 2; } }
+    @media (max-width: 540px) {
+      .gallery-masonry { columns: 1; }
+      .lb-arrow { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav" class="nav-compact">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="uploads/logo-shellharbour-beyond-networking-group.png" alt="Shellharbour &amp; Beyond Networking Group"/>
+    </a>
+    <div class="nav-event-pill">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Next Event: August 13, 2026 &nbsp;·&nbsp; 10:00am – 11:30am
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#events">Events</a></li>
+      <li><a href="index.html#membership">Membership</a></li>
+      <li><a href="members.html">Directory</a></li>
+      <li><a href="gallery.html" class="nav-active">Gallery</a></li>
+      <li><a href="region.html">Our Region</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="gallery-hero">
+  <div class="container">
+    <span class="section-tag">Event Gallery</span>
+    <h1>July Networking Morning</h1>
+    <p class="gallery-hero-meta">
+      Thursday, 9 July 2026
+      <span>·</span>
+      Rashays Shellharbour
+    </p>
+    <p class="gallery-photo-credit">
+      Photos by Luke Neofytou of <a href="https://www.modifiedphotography.com.au" target="_blank" rel="noopener noreferrer">Modified Photography</a>
+    </p>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="gallery-filter-bar">
+  <div class="gallery-filter-inner">
+    <span class="gallery-filter-label">Filter by event</span>
+    <button class="filter-chip active" data-filter="all">
+      All <span class="chip-count" id="count-all">20</span>
+    </button>
+    <button class="filter-chip" data-filter="2026-07-09">
+      9 July 2026 <span class="chip-count" id="count-jul">20</span>
+    </button>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div id="gallery-grid" class="gallery-masonry"></div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button id="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lb-arrow" id="lb-prev" aria-label="Previous">&#8249;</button>
+  <button class="lb-arrow" id="lb-next" aria-label="Next">&#8250;</button>
+  <img id="lightbox-img" src="" alt="SHBNG event photo"/>
+  <div id="lightbox-meta">
+    <div class="lb-event">Thursday, 9 July 2026 &nbsp;·&nbsp; Rashays Shellharbour</div>
+    <div class="lb-credit">Photos by Luke Neofytou of <a href="https://www.modifiedphotography.com.au" target="_blank" rel="noopener noreferrer">Modified Photography</a></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="uploads/pasted-1776672992337-0.png" alt="Shellharbour &amp; Beyond Networking Group"/>
+      <p>Connecting local business, building community, and supporting each other — right here in Shellharbour.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#events">Events</a></li>
+        <li><a href="index.html#membership">Membership</a></li>
+        <li><a href="members.html">Directory</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="region.html">Our Region</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Follow Us</h5>
+      <ul>
+        <li><a href="https://www.facebook.com/groups/1859999315387617" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+      </ul>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/groups/1859999315387617" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Shellharbour &amp; Beyond Networking Group. All rights reserved.</p>
+    <p class="footer-location">Shellharbour, NSW, Australia</p>
+    <p class="footer-credit">Web design by <a href="https://thriivdigital.com.au" target="_blank" rel="noopener noreferrer">thriiv.digital</a></p>
+  </div>
+</footer>
+
+<script>
+// ── PHOTO DATA ──
+const PHOTOS = [
+  { src: 'uploads/events/MP107542SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107545SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107550SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107573SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107582SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107587SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107592SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107599SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107602SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107627SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107637SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107650SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107672SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107701SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107709SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107716SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107729SHBNG20260709.jpg',   date: '2026-07-09' },
+  { src: 'uploads/events/MP107729-2SHBNG20260709.jpg', date: '2026-07-09' },
+  { src: 'uploads/events/MP107729-3SHBNG20260709.jpg', date: '2026-07-09' },
+  { src: 'uploads/events/MP107731SHBNG20260709.jpg',   date: '2026-07-09' },
+];
+
+// ── SHUFFLE ──
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+const DATE_LABELS = { '2026-07-09': '9 July 2026' };
+let shuffled = shuffle(PHOTOS);
+let currentFilter = 'all';
+let visible = [];
+let currentIndex = 0;
+
+// ── RENDER ──
+function render(photos) {
+  visible = photos;
+  const grid = document.getElementById('gallery-grid');
+  grid.innerHTML = '';
+  photos.forEach((p, i) => {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.dataset.date = p.date;
+    item.innerHTML = `
+      <img src="${p.src}" alt="SHBNG ${DATE_LABELS[p.date] || p.date} networking event" loading="lazy"/>
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-date">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          ${DATE_LABELS[p.date] || p.date}
+        </div>
+      </div>
+    `;
+    item.addEventListener('click', () => openLightbox(i));
+    grid.appendChild(item);
+  });
+}
+
+// ── LIGHTBOX ──
+const lb      = document.getElementById('gallery-lightbox');
+const lbImg   = document.getElementById('lightbox-img');
+
+function openLightbox(idx) {
+  currentIndex = idx;
+  lbImg.src = visible[idx].src;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+  lbImg.src = '';
+}
+function showPrev() { currentIndex = (currentIndex - 1 + visible.length) % visible.length; lbImg.src = visible[currentIndex].src; }
+function showNext() { currentIndex = (currentIndex + 1) % visible.length; lbImg.src = visible[currentIndex].src; }
+
+document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+document.getElementById('lb-prev').addEventListener('click', showPrev);
+document.getElementById('lb-next').addEventListener('click', showNext);
+lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') showPrev();
+  if (e.key === 'ArrowRight') showNext();
+});
+
+// ── FILTER ──
+document.querySelectorAll('.filter-chip').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    const filtered = currentFilter === 'all' ? shuffled : shuffled.filter(p => p.date === currentFilter);
+    render(filtered);
+  });
+});
+
+// ── INIT ──
+render(shuffled);
+
+// ── NAV ──
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+nav.classList.toggle('scrolled', window.scrollY > 60);
+(function() {
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks  = document.getElementById('nav-links');
+  if (!hamburger || !navLinks) return;
+  function closeNav() { navLinks.classList.remove('nav-open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  hamburger.addEventListener('click', () => { const o = navLinks.classList.toggle('nav-open'); hamburger.classList.toggle('open',o); hamburger.setAttribute('aria-expanded',String(o)); document.body.style.overflow=o?'hidden':''; });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+  document.addEventListener('keydown', e => { if(e.key==='Escape' && !lb.classList.contains('open')) closeNav(); });
+})();
+</script>
+</body>
+</html>
