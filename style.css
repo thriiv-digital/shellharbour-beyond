@@ -424,8 +424,10 @@ nav.nav-compact.scrolled .nav-logo img { height: 72px; }
   transition: max-height 0.3s ease, opacity 0.3s ease;
   font-size: 15px; color: var(--text-muted); line-height: 1.7;
 }
-.faq-answer.open { max-height: 300px; opacity: 1; }
+.faq-answer.open { max-height: 360px; opacity: 1; }
 .faq-answer-inner { padding-bottom: 20px; }
+.faq-answer-inner ul { margin: 10px 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.faq-answer-inner strong { color: var(--navy); font-weight: 600; }
 
 /* ── CONTACT ── */
 .contact { padding: 80px 0; background: white; }
