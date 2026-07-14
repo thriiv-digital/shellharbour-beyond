@@ -297,7 +297,7 @@ nav.nav-compact.scrolled .nav-logo img { height: 72px; }
 }
 .event-tag { color: var(--teal) !important; }
 .event-section h2 { font-size: clamp(28px, 3vw, 40px); color: white; margin-bottom: 16px; }
-.events-header { text-align: center; max-width: 720px; margin: 0 auto 48px; position: relative; }
+.events-header { text-align: center; max-width: 800px; margin: 0 auto 48px; position: relative; }
 .event-intro { color: rgba(255,255,255,0.65); font-size: 16px; margin: 0 auto; }
 
 .events-grid {
