@@ -83,7 +83,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css?v=20260714b"/>
+  <link rel="stylesheet" href="style.css?v=20260714c"/>
   <style>
     .about-slideshow { position: relative; width: 100%; border-radius: 20px; overflow: hidden; aspect-ratio: 4/3; }
     .about-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.8s ease; pointer-events: none; }
@@ -355,35 +355,60 @@
 <!-- EVENTS -->
 <section class="event-section" id="events">
   <div class="container">
-    <div class="event-inner">
-      <div>
-        <span class="section-tag event-tag">Next Event</span>
-        <h2>Join Us for Our August Morning</h2>
-        <p class="event-intro">Come along, grab a coffee and meet the faces behind Shellharbour's growing business community. No agenda, no pressure — just good conversation.</p>
-        <div class="free-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Free to attend your first time
-        </div>
-        <div class="event-details">
-          <div class="event-detail">
-            <span class="event-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-            <div class="event-detail-text"><strong>Thursday, 13 August 2026</strong><span>Monthly event — every second Thursday</span></div>
+    <div class="events-header">
+      <span class="section-tag event-tag">Join Us</span>
+      <h2>Upcoming Events</h2>
+      <p class="event-intro">Come along, grab a coffee and meet the faces behind Shellharbour's growing business community. No agenda, no pressure — just good conversation.</p>
+    </div>
+    <div class="events-grid">
+      <div class="event-card">
+        <img src="uploads/georgia-rose.jpg" alt="Georgia Rose, The Nook" class="event-card-img"/>
+        <div class="event-card-body">
+          <h3 class="event-card-title">Monthly Business Breakfast</h3>
+          <div class="event-card-meta">
+            <span class="event-card-meta-row">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Thursday, July 23
+            </span>
+            <span class="event-card-meta-row">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Georgia Rose, The Nook
+            </span>
+            <span class="event-card-meta-row">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              7am – 8:30am
+            </span>
           </div>
-          <div class="event-detail">
-            <span class="event-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-            <div class="event-detail-text"><strong>10:00am – 11:30am</strong><span>Casual format, stay as long as you like</span></div>
-          </div>
-          <div class="event-detail">
-            <span class="event-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-            <div class="event-detail-text"><strong>Rashays Shellharbour</strong><span>Shellharbour NSW</span></div>
-          </div>
-          <div class="event-detail">
-            <span class="event-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span>
-            <div class="event-detail-text"><strong>FREE coffee for the first arrival</strong><span>Be there early!</span></div>
+          <div class="free-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Free to attend your first time
           </div>
         </div>
       </div>
-      <img src="uploads/pic-shbng-rashays2.jpg" alt="Rashays Shellharbour" class="event-photo"/>
+      <div class="event-card">
+        <img src="uploads/pic-shbng-rashays2.jpg" alt="Rashays Shellharbour" class="event-card-img"/>
+        <div class="event-card-body">
+          <h3 class="event-card-title">Monthly Network Morning</h3>
+          <div class="event-card-meta">
+            <span class="event-card-meta-row">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Thursday, Aug 13
+            </span>
+            <span class="event-card-meta-row">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Rashays, Shellharbour
+            </span>
+            <span class="event-card-meta-row">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              10am – 11:30am
+            </span>
+          </div>
+          <div class="free-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Free to attend your first time
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
