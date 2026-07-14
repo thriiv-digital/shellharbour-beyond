@@ -26,29 +26,69 @@ window.addEventListener('scroll', () => {
 });
 nav.classList.toggle('scrolled', window.scrollY > 60);
 
-// ── COUNTDOWN ──
-const TARGET = new Date('2026-08-13T10:00:00+10:00').getTime();
-const cdGrid = document.getElementById('countdown-grid');
-const cdExpired = document.getElementById('countdown-expired');
-const cdDays = document.getElementById('cd-days');
-const cdHours = document.getElementById('cd-hours');
-const cdMins = document.getElementById('cd-mins');
+// ── UPCOMING EVENTS: COUNTDOWNS, TOGGLE, NEXT-EVENT NAV TEXT ──
+(function () {
+  const eventItems = Array.from(document.querySelectorAll('.event-item'));
+  if (!eventItems.length) return;
 
-function pad(n) { return String(n).padStart(2, '0'); }
+  function pad(n) { return String(n).padStart(2, '0'); }
 
-function tickCountdown() {
-  const diff = TARGET - Date.now();
-  if (diff <= 0) {
-    cdGrid.style.display = 'none';
-    cdExpired.style.display = 'block';
-    return;
+  function tickCountdowns() {
+    eventItems.forEach(item => {
+      const target = new Date(item.dataset.target).getTime();
+      const diff = target - Date.now();
+      const grid = item.querySelector('.countdown-grid');
+      const expired = item.querySelector('.countdown-expired');
+      if (diff <= 0) {
+        if (grid) grid.style.display = 'none';
+        if (expired) expired.style.display = 'block';
+        return;
+      }
+      const days = item.querySelector('[data-cd="days"]');
+      const hours = item.querySelector('[data-cd="hours"]');
+      const mins = item.querySelector('[data-cd="mins"]');
+      if (days) days.textContent = pad(Math.floor(diff / 86400000));
+      if (hours) hours.textContent = pad(Math.floor((diff % 86400000) / 3600000));
+      if (mins) mins.textContent = pad(Math.floor((diff % 3600000) / 60000));
+    });
   }
-  cdDays.textContent  = pad(Math.floor(diff / 86400000));
-  cdHours.textContent = pad(Math.floor((diff % 86400000) / 3600000));
-  cdMins.textContent  = pad(Math.floor((diff % 3600000) / 60000));
-}
-tickCountdown();
-setInterval(tickCountdown, 60000);
+  tickCountdowns();
+  setInterval(tickCountdowns, 60000);
+
+  // Toggle expand/collapse
+  eventItems.forEach(item => {
+    const toggle = item.querySelector('.event-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', () => {
+      const isOpen = item.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  });
+
+  // Auto-open whichever event is soonest (upcoming events take priority over past ones)
+  const now = Date.now();
+  const withTargets = eventItems.map(item => ({ item, target: new Date(item.dataset.target).getTime() }));
+  const upcoming = withTargets.filter(e => e.target > now);
+  const pool = upcoming.length ? upcoming : withTargets;
+  const soonest = pool.sort((a, b) => a.target - b.target)[0];
+
+  if (soonest) {
+    eventItems.forEach(item => {
+      const isSoonest = item === soonest.item;
+      item.classList.toggle('is-open', isSoonest);
+      const toggle = item.querySelector('.event-toggle');
+      if (toggle) toggle.setAttribute('aria-expanded', String(isSoonest));
+    });
+
+    const { dateFull, timeLabel } = soonest.item.dataset;
+    const navText = `Next Event: ${dateFull} &nbsp;·&nbsp; ${timeLabel}`;
+    const navTextMobile = `Next Event: ${dateFull} · ${timeLabel}`;
+    const navEl = document.getElementById('nav-event-text');
+    const navElMobile = document.getElementById('nav-event-text-mobile');
+    if (navEl) navEl.innerHTML = navText;
+    if (navElMobile) navElMobile.textContent = navTextMobile;
+  }
+})();
 
 // ── FAQ ACCORDION ──
 document.querySelectorAll('.faq-question').forEach(btn => {

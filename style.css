@@ -169,38 +169,65 @@ nav.nav-compact.scrolled .nav-logo img { height: 72px; }
 .hero-sub { font-size: 18px; color: var(--text-muted); margin-bottom: 28px; font-weight: 400; max-width: 440px; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-/* ── COUNTDOWN ── */
+/* ── UPCOMING EVENTS CARD ── */
 .countdown-card {
   background: var(--navy);
   border-radius: 16px;
-  padding: 18px 20px;
+  padding: 18px;
   color: white;
   box-shadow: 0 20px 60px rgba(26,58,107,0.25);
 }
 .countdown-label {
   font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--teal); margin-bottom: 10px;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
+  padding: 0 2px;
 }
-.countdown-title-row {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 10px; margin-bottom: 10px; flex-wrap: nowrap;
+
+.event-item {
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: var(--navy-dark);
+  transition: background 0.25s ease;
 }
-.countdown-event-title { font-size: 17px; font-weight: 700; flex: 1; min-width: 0; }
-.countdown-location {
+.event-item + .event-item { margin-top: 10px; }
+.event-item.is-open { background: rgba(255,255,255,0.05); }
+
+.event-item-header { display: flex; align-items: center; gap: 10px; }
+.event-toggle {
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+  background: rgba(255,255,255,0.14); border: none; color: white;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; padding: 0; transition: background 0.2s ease;
+}
+.event-toggle:hover { background: rgba(255,255,255,0.24); }
+.event-toggle-icon { transition: transform 0.25s ease; }
+.event-item.is-open .event-toggle-icon { transform: rotate(45deg); }
+
+.event-item-title { font-size: 18px; font-weight: 700; flex: 1; min-width: 0; color: white; }
+
+.event-item-meta {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 6px 16px; margin-top: 10px;
   font-size: 13px; color: rgba(255,255,255,0.65);
-  margin-bottom: 14px; display: flex; align-items: center;
-  justify-content: space-between;
 }
-.countdown-location a { color: rgba(255,255,255,0.65); text-decoration: underline; text-decoration-color: rgba(255,255,255,0.3); }
+.event-item-meta .cd-loc { display: flex; align-items: center; gap: 5px; }
+.event-item-meta a { color: rgba(255,255,255,0.75); text-decoration: underline; text-decoration-color: rgba(255,255,255,0.3); }
 .cd-loc { display: flex; align-items: center; gap: 4px; }
-.countdown-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 14px; }
+
+.event-item-body {
+  max-height: 0; opacity: 0; overflow: hidden; margin-top: 0;
+  transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.35s ease;
+}
+.event-item.is-open .event-item-body { max-height: 220px; opacity: 1; margin-top: 14px; }
+
+.countdown-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 10px; }
 .countdown-unit {
   background: rgba(255,255,255,0.1);
   border-radius: 10px; padding: 10px 8px; text-align: center;
 }
 .countdown-num { font-size: 26px; font-weight: 700; line-height: 1; font-family: 'DM Sans', sans-serif; }
 .countdown-unitlabel { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.55); margin-top: 3px; }
-.countdown-expired { color: #4ecdc4; font-weight: 600; font-size: 18px; margin-bottom: 14px; }
+.countdown-expired { color: #4ecdc4; font-weight: 600; font-size: 15px; }
 .add-to-cal {
   display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0;
   font-size: 11px; color: var(--teal); font-weight: 600;
@@ -209,6 +236,7 @@ nav.nav-compact.scrolled .nav-logo img { height: 72px; }
   border: 1px solid rgba(15,181,200,0.25);
   border-radius: 50px; padding: 4px 10px; white-space: nowrap;
 }
+.add-to-cal:hover { background: rgba(15,181,200,0.2); }
 
 .hero-photo {
   width: 100%;
