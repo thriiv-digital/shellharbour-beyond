@@ -350,5 +350,26 @@
     ],
     "description": "SimplyDraft is a Jamberoo-based drafting service helping homeowners and builders across NSW bring their residential projects to life. From decks, pools and sheds to change of use applications and new builds, Cameron Rowe delivers clear, council-ready drawings that simplify the DA and CDC approval process — start to finish.",
     "member_since": "2026"
+  },
+  {
+    "id": "first-class-accounts-kiama",
+    "name": "First Class Accounts Kiama",
+    "type": "Finance",
+    "logo": "uploads/directory/first-class-kiama-logo.jpeg",
+    "address": "Kiama, NSW",
+    "phone": "0406 945 766",
+    "email": "",
+    "website": "https://www.firstclassaccounts.com/kiama/",
+    "facebook": "https://www.facebook.com/profile.php?id=61574925076956",
+    "instagram": "",
+    "linkedin": "https://www.linkedin.com/in/mark-londal",
+    "youtube": "https://www.youtube.com/user/FirstClassAccounts/",
+    "images": [
+      "uploads/directory/first-class-1.jpeg",
+      "uploads/directory/first-class-2.jpg",
+      "uploads/directory/first-class-3.png"
+    ],
+    "description": "First Class Accounts Kiama, led by CPA Mark Londal, provides expert bookkeeping, payroll and financial management services tailored for small and medium businesses in the Kiama region. Backed by over 25 years of multinational and SME experience, the firm specialises in core bookkeeping, ATO compliance, software training (such as Xero and MYOB), and virtual CFO services — bringing large-scale financial expertise down to a practical, manageable level for local business owners.",
+    "member_since": "2026"
   }
 ]

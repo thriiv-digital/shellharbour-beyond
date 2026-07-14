@@ -133,6 +133,7 @@
     .social-pill.fb  { color: #1877f2; border-color: #1877f2; }
     .social-pill.ig  { color: #e1306c; border-color: #e1306c; }
     .social-pill.li  { color: #0077b5; border-color: #0077b5; }
+    .social-pill.yt  { color: #ff0000; border-color: #ff0000; }
     .social-pill:hover { opacity: 0.7; }
 
     /* ── STATUS DOTS ── */
@@ -270,6 +271,7 @@ function renderCards(members) {
       m.facebook ? `<a href="${m.facebook}" target="_blank" rel="noopener noreferrer" class="social-pill fb">Facebook</a>` : '',
       m.instagram ? `<a href="${m.instagram}" target="_blank" rel="noopener noreferrer" class="social-pill ig">Instagram</a>` : '',
       m.linkedin  ? `<a href="${m.linkedin}"  target="_blank" rel="noopener noreferrer" class="social-pill li">LinkedIn</a>`  : '',
+      m.youtube   ? `<a href="${m.youtube}"   target="_blank" rel="noopener noreferrer" class="social-pill yt">YouTube</a>`   : '',
     ].filter(Boolean).join('');
     const websiteDisplay = m.website ? m.website.replace(/^https?:\/\//, '') : '';
     return `
