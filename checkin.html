@@ -23,7 +23,7 @@
   .checkin-brandrow {
     display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 18px;
   }
-  .checkin-brandrow img { height: 26px; }
+  .checkin-brandrow img { height: 40px; }
   .checkin-brandrow span {
     font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
   }
@@ -38,6 +38,7 @@
     font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--teal-mid);
     text-transform: uppercase;
   }
+  .venue-heading .venue-date-value { display: block; margin-top: 4px; }
 
   /* source pills (extend the site's existing form-group system) */
   .radio-stack { display: flex; flex-direction: column; gap: 8px; }
@@ -109,7 +110,10 @@
       <div class="venue-photo"><img id="venue-photo-img" alt=""/></div>
       <div class="venue-heading">
         <h1 id="venue-name-label"></h1>
-        <div class="venue-date" id="venue-date-label"></div>
+        <div class="venue-date">
+          <span id="venue-date-label"></span>
+          <span class="venue-date-value" id="venue-date-value"></span>
+        </div>
       </div>
 
       <form class="contact-form" id="checkin-form" action="https://hook.eu1.make.com/6w1ovsrs07svuhy9yv2iywpm4fof6l4d" method="POST" novalidate>
@@ -162,7 +166,9 @@
           <a href="https://thriivdigital.com.au" target="_blank" rel="noopener noreferrer">
             <img src="uploads/logo-thriiv.png" alt="thriiv digital" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'thriiv.'}))"/>
           </a>
-          <img src="uploads/logo-momentuum.png" alt="momentuum" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'momentuum'}))"/>
+          <a href="https://momentuum.ai/" target="_blank" rel="noopener noreferrer">
+            <img src="uploads/logo-momentuum.png" alt="momentuum" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'momentuum'}))"/>
+          </a>
         </div>
       </div>
     </div>
@@ -247,7 +253,8 @@
     document.getElementById('venue-photo-img').alt = venue.name;
     document.getElementById('venue-photo-img').style.objectPosition = venue.photoPosition;
     document.getElementById('venue-name-label').textContent = venue.name;
-    document.getElementById('venue-date-label').textContent = venue.eventLabel + ' · ' + formatDate(eventDate);
+    document.getElementById('venue-date-label').textContent = venue.eventLabel;
+    document.getElementById('venue-date-value').textContent = formatDate(eventDate);
 
     var form = document.getElementById('checkin-form');
     document.getElementById('subject-field').value = 'New SHBNG check-in — ' + venue.name;
