@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Event Check-In — Shellharbour &amp; Beyond Networking Group</title>
+<link rel="icon" type="image/png" href="uploads/logo-shellharbour-beyond-networking-group.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .checkin-page {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(160deg, #f0fafc 0%, #e8f4f8 40%, #fdf8f2 100%);
+    padding: 32px 20px;
+  }
+  .checkin-card {
+    width: 100%; max-width: 440px; background: white; border-radius: 20px;
+    border: 1px solid var(--border); box-shadow: 0 2px 12px rgba(26,58,107,0.06);
+    padding: 28px 26px 32px;
+  }
+  .checkin-brandrow {
+    display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 18px;
+  }
+  .checkin-brandrow img { height: 26px; }
+  .checkin-brandrow span {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
+  }
+  .venue-photo {
+    width: 100%; height: 148px; border-radius: 14px; overflow: hidden; margin-bottom: 18px;
+    background: repeating-linear-gradient(45deg, #e8f0f5, #e8f0f5 8px, #d5e5ed 8px, #d5e5ed 16px);
+  }
+  .venue-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .venue-heading { text-align: center; margin-bottom: 22px; }
+  .venue-heading h1 { font-size: 26px; color: var(--navy); margin-bottom: 6px; }
+  .venue-heading .venue-date {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--teal-mid);
+    text-transform: uppercase;
+  }
+
+  /* source pills (extend the site's existing form-group system) */
+  .radio-stack { display: flex; flex-direction: column; gap: 8px; }
+  .radio-stack label {
+    display: flex; align-items: center; gap: 10px; border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 11px 14px; cursor: pointer; font-size: 14px; color: var(--text);
+    transition: border-color .2s, background .2s;
+  }
+  .radio-stack input { accent-color: var(--teal-mid); margin: 0; width: 17px; height: 17px; flex-shrink: 0; }
+  .radio-stack label span { flex: 1; min-width: 0; }
+  .radio-stack label:has(input:checked) { border-color: var(--teal-mid); background: var(--teal-light); }
+
+  .checkin-card button[type="submit"] { width: 100%; text-align: center; margin-top: 4px; }
+
+  .checkin-footer-credit {
+    text-align: center; margin-top: 20px;
+  }
+  .checkin-footer-credit .powered-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 10px;
+  }
+  .powered-logos { display: flex; align-items: flex-end; justify-content: center; gap: 32px; }
+  .powered-logos img { height: 22px; width: auto; display: block; }
+  .powered-logos img[alt="momentuum"] { height: 30px; transform: translateY(7px); }
+  .powered-logos .logo-fallback {
+    font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px; color: var(--navy);
+    border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px;
+  }
+
+  /* venue picker fallback (shown if the QR/link has no ?v= param) */
+  .picker-list { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+  .picker-option {
+    display: flex; align-items: center; gap: 14px; border: 1.5px solid var(--border); border-radius: 14px;
+    padding: 10px; text-decoration: none; transition: border-color .2s;
+  }
+  .picker-option:hover { border-color: var(--teal-mid); }
+  .picker-option img { width: 56px; height: 56px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
+  .picker-option-text strong { display: block; color: var(--navy); font-size: 15px; }
+  .picker-option-text span { font-size: 12.5px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<div class="checkin-page">
+  <div class="checkin-card">
+
+    <div class="checkin-brandrow">
+      <img src="uploads/logo-shellharbour-beyond-networking-group.png" alt="SHBNG"/>
+      <span>Event Check-In</span>
+    </div>
+
+    <!-- Shown only if the URL has no valid ?v= venue parameter -->
+    <div id="picker-screen" style="display:none;">
+      <div class="venue-heading"><h1>Which event are you at?</h1></div>
+      <div class="picker-list">
+        <a class="picker-option" href="?v=georgia-rose">
+          <img src="uploads/georgia-rose.jpg" alt="Georgia Rose"/>
+          <div class="picker-option-text"><strong>Georgia Rose</strong><span>Business Breakfast — 4th Thursday</span></div>
+        </a>
+        <a class="picker-option" href="?v=rashays">
+          <img src="uploads/pic-shbng-rashays2.jpg" alt="Rashays Shellharbour"/>
+          <div class="picker-option-text"><strong>Rashays</strong><span>Network Morning — 2nd Thursday</span></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main check-in form -->
+    <div id="checkin-screen" style="display:none;">
+      <div class="venue-photo"><img id="venue-photo-img" alt=""/></div>
+      <div class="venue-heading">
+        <h1 id="venue-name-label"></h1>
+        <div class="venue-date" id="venue-date-label"></div>
+      </div>
+
+      <form class="contact-form" id="checkin-form" action="https://hook.eu1.make.com/6w1ovsrs07svuhy9yv2iywpm4fof6l4d" method="POST" novalidate>
+        <input type="hidden" name="_cc" value="thriiv.au@gmail.com"/>
+        <input type="hidden" name="_subject" id="subject-field" value=""/>
+        <input type="hidden" name="event" id="event-field" value=""/>
+        <input type="hidden" name="event_date" id="event-date-field" value=""/>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off"/>
+
+        <div class="form-group">
+          <label for="ci-name">Name</label>
+          <input id="ci-name" name="name" type="text" required placeholder="Jane Smith" autocomplete="name"/>
+        </div>
+
+        <div class="form-group">
+          <label for="ci-business">Business / company</label>
+          <input id="ci-business" name="business" type="text" required placeholder="Your business (or N/A)" autocomplete="organization"/>
+        </div>
+
+        <div class="form-group">
+          <label for="ci-phone">Phone</label>
+          <input id="ci-phone" name="phone" type="tel" placeholder="0400 000 000" inputmode="tel" autocomplete="tel"/>
+        </div>
+
+        <div class="form-group">
+          <label for="ci-email">Email</label>
+          <input id="ci-email" name="email" type="email" placeholder="jane@example.com" autocomplete="email"/>
+        </div>
+
+        <div class="form-group">
+          <label>How'd you hear about us?</label>
+          <div class="radio-stack">
+            <label><input type="radio" name="source" value="Referral from a friend / colleague" required/><span>Referral from a friend / colleague</span></label>
+            <label><input type="radio" name="source" value="SHBNG socials (Facebook/LinkedIn)"/><span>SHBNG socials (Facebook/LinkedIn)</span></label>
+            <label><input type="radio" name="source" value="Walked in / saw the sign"/><span>Walked in / saw the sign</span></label>
+            <label><input type="radio" name="source" id="source-other" value="Other"/><span>Other</span></label>
+          </div>
+        </div>
+
+        <div class="form-group" id="other-group" style="display:none;">
+          <label for="ci-other">Tell us a bit more</label>
+          <input id="ci-other" name="source_other" type="text" placeholder="Optional"/>
+        </div>
+
+        <button type="submit" class="btn-primary">Check In</button>
+      </form>
+
+      <div class="checkin-footer-credit">
+        <p class="powered-label">This check-in process is powered by:</p>
+        <div class="powered-logos">
+          <a href="https://thriivdigital.com.au" target="_blank" rel="noopener noreferrer">
+            <img src="uploads/logo-thriiv.png" alt="thriiv digital" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'thriiv.'}))"/>
+          </a>
+          <img src="uploads/logo-momentuum.png" alt="momentuum" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'momentuum'}))"/>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // nthWeekday: 1 = 1st, 2 = 2nd, etc. weekday: 0=Sun ... 4=Thu ... 6=Sat
+  var VENUES = {
+    'georgia-rose': {
+      name: 'Georgia Rose',
+      eventLabel: 'Business Breakfast Check-In',
+      photo: 'uploads/georgia-rose.jpg',
+      photoPosition: 'center top',
+      nthWeekday: 4,
+      weekday: 4
+    },
+    'rashays': {
+      name: 'Rashays',
+      eventLabel: 'Network Morning Check-In',
+      photo: 'uploads/pic-shbng-rashays2.jpg',
+      photoPosition: 'center 22%',
+      nthWeekday: 2,
+      weekday: 4
+    }
+  };
+
+  // Where a successful submission redirects to.
+  var THANK_YOU_URL = 'checkin-thanks.html';
+
+  // Best-effort backup email record — sent alongside the Make webhook but never
+  // blocks or gates the check-in if it's slow, down, or over its free-tier cap.
+  var FORMSPREE_BACKUP_URL = 'https://formspree.io/f/mrenkpgj';
+
+  function getVenueKey() {
+    return new URLSearchParams(window.location.search).get('v');
+  }
+
+  // The Nth given weekday of a given month (month is 0-indexed).
+  function nthWeekdayOfMonth(year, month, nth, weekday) {
+    var first = new Date(year, month, 1);
+    var offset = (weekday - first.getDay() + 7) % 7;
+    var day = 1 + offset + (nth - 1) * 7;
+    return new Date(year, month, day);
+  }
+
+  // Next occurrence of "the Nth weekday of the month" — this month if it
+  // hasn't passed yet, otherwise next month. Keeps the date on the page
+  // correct every month with no manual editing.
+  function nextOccurrence(nth, weekday) {
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var candidate = nthWeekdayOfMonth(today.getFullYear(), today.getMonth(), nth, weekday);
+    if (candidate < today) {
+      candidate = nthWeekdayOfMonth(today.getFullYear(), today.getMonth() + 1, nth, weekday);
+    }
+    return candidate;
+  }
+
+  function formatDate(d) {
+    return d.toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  function isoDate(d) {
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+
+  (function init() {
+    var key = getVenueKey();
+    var venue = key && VENUES[key];
+
+    if (!venue) {
+      document.getElementById('picker-screen').style.display = 'block';
+      return;
+    }
+    document.getElementById('checkin-screen').style.display = 'block';
+
+    var eventDate = nextOccurrence(venue.nthWeekday, venue.weekday);
+
+    document.getElementById('venue-photo-img').src = venue.photo;
+    document.getElementById('venue-photo-img').alt = venue.name;
+    document.getElementById('venue-photo-img').style.objectPosition = venue.photoPosition;
+    document.getElementById('venue-name-label').textContent = venue.name;
+    document.getElementById('venue-date-label').textContent = venue.eventLabel + ' · ' + formatDate(eventDate);
+
+    var form = document.getElementById('checkin-form');
+    document.getElementById('subject-field').value = 'New SHBNG check-in — ' + venue.name;
+    document.getElementById('event-field').value = venue.name + ' — ' + venue.eventLabel;
+    document.getElementById('event-date-field').value = isoDate(eventDate);
+
+    var otherGroup = document.getElementById('other-group');
+    var otherInput = document.getElementById('ci-other');
+    document.querySelectorAll('input[name="source"]').forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        var isOther = document.getElementById('source-other').checked;
+        otherGroup.style.display = isOther ? '' : 'none';
+        otherInput.required = isOther;
+      });
+    });
+
+    // Mirrors the async-submit pattern used by the main contact form on index.html,
+    // but redirects to a dedicated thank-you page instead of an inline success state.
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      var btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Checking in…'; btn.disabled = true;
+
+      fetch(FORMSPREE_BACKUP_URL, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } }).catch(function () {});
+
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (res) {
+          if (res.ok) { window.location.href = THANK_YOU_URL + '?v=' + encodeURIComponent(key); }
+          else { btn.textContent = 'Check In'; btn.disabled = false; alert('Something went wrong — please try again.'); }
+        })
+        .catch(function () { btn.textContent = 'Check In'; btn.disabled = false; alert('Something went wrong — please try again.'); });
+    });
+  })();
+</script>
+</body>
+</html>

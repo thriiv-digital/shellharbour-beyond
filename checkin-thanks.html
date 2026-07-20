@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>You're Checked In — Shellharbour &amp; Beyond Networking Group</title>
+  <link rel="icon" type="image/png" href="uploads/logo-shellharbour-beyond-networking-group.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .thankyou-page {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(160deg, #f0fafc 0%, #e8f4f8 40%, #fdf8f2 100%);
+      padding: 40px 24px; text-align: center;
+    }
+    .thankyou-inner { max-width: 460px; }
+    .thankyou-icon {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: var(--teal-light); border: 3px solid var(--teal-mid);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px; color: var(--teal-mid);
+    }
+    .thankyou-inner h1 { font-size: clamp(28px, 4vw, 42px); color: var(--navy); margin-bottom: 16px; }
+    .thankyou-inner p { font-size: 17px; color: var(--text-muted); line-height: 1.75; margin-bottom: 12px; }
+    .thankyou-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+    .checkin-footer-credit { margin-top: 28px; }
+    .checkin-footer-credit .powered-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 10px;
+    }
+    .powered-logos { display: flex; align-items: flex-end; justify-content: center; gap: 32px; }
+    .powered-logos img { height: 22px; width: auto; display: block; }
+    .powered-logos img[alt="momentuum"] { height: 30px; transform: translateY(7px); }
+    .powered-logos .logo-fallback {
+      font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px; color: var(--navy);
+      border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="thankyou-page">
+  <div class="thankyou-inner">
+    <div class="thankyou-icon">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h1>You're checked in!</h1>
+    <p>Thanks for coming along!</p>
+
+    <div class="thankyou-links">
+      <a href="https://www.facebook.com/groups/1859999315387617" target="_blank" rel="noopener noreferrer" class="btn-primary">Follow on Facebook</a>
+      <a href="index.html" class="btn-outline">Back to Home</a>
+    </div>
+
+    <div class="checkin-footer-credit">
+      <p class="powered-label">This check-in process is powered by:</p>
+      <div class="powered-logos">
+        <a href="https://thriivdigital.com.au" target="_blank" rel="noopener noreferrer">
+          <img src="uploads/logo-thriiv.png" alt="thriiv digital" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'thriiv.'}))"/>
+        </a>
+        <img src="uploads/logo-momentuum.png" alt="momentuum" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'momentuum'}))"/>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
