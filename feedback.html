@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Event Feedback — Shellharbour &amp; Beyond Networking Group</title>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="icon" type="image/png" href="uploads/logo-shellharbour-beyond-networking-group.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .feedback-page {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(160deg, #f0fafc 0%, #e8f4f8 40%, #fdf8f2 100%);
+    padding: 32px 20px;
+  }
+  .feedback-card {
+    width: 100%; max-width: 460px; background: white; border-radius: 20px;
+    border: 1px solid var(--border); box-shadow: 0 2px 12px rgba(26,58,107,0.06);
+    padding: 28px 26px 32px;
+  }
+  .feedback-brandrow {
+    display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 18px;
+  }
+  .feedback-brandrow img { height: 40px; }
+  .feedback-brandrow span {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
+  }
+  .feedback-heading { text-align: center; margin-bottom: 8px; }
+  .feedback-heading h1 { font-size: 26px; color: var(--navy); margin-bottom: 8px; }
+  .feedback-heading p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  .feedback-anon-note {
+    display: flex; align-items: center; gap: 8px; justify-content: center;
+    font-size: 12px; color: var(--teal-mid); font-weight: 600; background: var(--teal-light);
+    border-radius: 50px; padding: 7px 14px; margin: 16px auto 22px; width: fit-content;
+  }
+
+  /* rating scale */
+  .rating-row { display: flex; gap: 8px; justify-content: space-between; }
+  .rating-row label {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    border: 1.5px solid var(--border); border-radius: 10px; padding: 12px 0; cursor: pointer;
+    font-size: 16px; font-weight: 600; color: var(--navy); transition: border-color .2s, background .2s;
+  }
+  .rating-row input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .rating-row label:has(input:checked) { border-color: var(--teal-mid); background: var(--teal-light); color: var(--teal-mid); }
+  .rating-scale-caption {
+    display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); margin-top: 6px;
+  }
+
+  .radio-stack { display: flex; flex-direction: column; gap: 8px; }
+  .radio-stack label {
+    display: flex; align-items: center; gap: 10px; border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 11px 14px; cursor: pointer; font-size: 14px; color: var(--text);
+    transition: border-color .2s, background .2s;
+  }
+  .radio-stack input { accent-color: var(--teal-mid); margin: 0; width: 17px; height: 17px; flex-shrink: 0; }
+  .radio-stack label span { flex: 1; min-width: 0; }
+  .radio-stack label:has(input:checked) { border-color: var(--teal-mid); background: var(--teal-light); }
+
+  .feedback-card button[type="submit"] { width: 100%; text-align: center; margin-top: 4px; }
+
+  .form-success { display: none; text-align: center; padding: 12px 4px 4px; }
+  .form-success-icon {
+    width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 16px;
+    background: var(--teal-light); border: 3px solid var(--teal-mid); color: var(--teal-mid);
+    display: flex; align-items: center; justify-content: center; font-size: 24px;
+  }
+  .form-success strong { display: block; font-size: 19px; color: var(--navy); margin-bottom: 8px; }
+  .form-success p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  .feedback-footer-credit { text-align: center; margin-top: 24px; }
+  .feedback-footer-credit .powered-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 10px;
+  }
+  .powered-logos { display: flex; align-items: flex-end; justify-content: center; gap: 32px; }
+  .powered-logos img { height: 22px; width: auto; display: block; }
+  .powered-logos img[alt="momentuum"] { height: 30px; transform: translateY(7px); }
+  .powered-logos .logo-fallback {
+    font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px; color: var(--navy);
+    border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="feedback-page">
+  <div class="feedback-card">
+
+    <div class="feedback-brandrow">
+      <img src="uploads/logo-shellharbour-beyond-networking-group.png" alt="SHBNG"/>
+      <span>Event Feedback</span>
+    </div>
+
+    <div class="feedback-heading">
+      <h1>How was this morning?</h1>
+      <p>Takes about 30 seconds — your feedback helps us plan better events.</p>
+    </div>
+    <div class="feedback-anon-note">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      100% anonymous — no name or email collected
+    </div>
+
+    <form class="contact-form" id="feedback-form" action="https://formspree.io/f/xdaqlode" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="New SHBNG event feedback"/>
+      <!-- Captured silently for duplicate-detection only, never shown to the respondent.
+           Note: most attendees will be on the same venue wifi, so identical IPs across
+           rows are expected and don't necessarily mean the same person submitted twice. -->
+      <input type="hidden" name="submitter_ip" id="fb-ip"/>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off"/>
+
+      <div class="form-group">
+        <label>Overall, how would you rate this morning's event? *</label>
+        <div class="rating-row">
+          <label><input type="radio" name="rating" value="1" required/>1</label>
+          <label><input type="radio" name="rating" value="2"/>2</label>
+          <label><input type="radio" name="rating" value="3"/>3</label>
+          <label><input type="radio" name="rating" value="4"/>4</label>
+          <label><input type="radio" name="rating" value="5"/>5</label>
+        </div>
+        <div class="rating-scale-caption"><span>Poor</span><span>Excellent</span></div>
+      </div>
+
+      <div class="form-group">
+        <label for="fb-best">What was the most valuable part for you?</label>
+        <input id="fb-best" name="most_valuable" type="text" placeholder="Optional"/>
+      </div>
+
+      <div class="form-group">
+        <label for="fb-improve">What could we do better next time?</label>
+        <input id="fb-improve" name="improve" type="text" placeholder="Optional"/>
+      </div>
+
+      <div class="form-group">
+        <label>Would you recommend SHBNG to another business owner?</label>
+        <div class="radio-stack">
+          <label><input type="radio" name="recommend" value="Yes"/><span>Yes</span></label>
+          <label><input type="radio" name="recommend" value="Maybe"/><span>Maybe</span></label>
+          <label><input type="radio" name="recommend" value="No"/><span>No</span></label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fb-topics">Any topics, speakers or formats you'd like at a future event?</label>
+        <input id="fb-topics" name="future_topics" type="text" placeholder="Optional"/>
+      </div>
+
+      <button type="submit" class="btn-primary">Submit Feedback</button>
+    </form>
+
+    <div class="form-success" id="form-success">
+      <div class="form-success-icon">✓</div>
+      <strong>Thanks for the feedback!</strong>
+      <p>We read every response — see you at the next event.</p>
+    </div>
+
+    <div class="feedback-footer-credit">
+      <p class="powered-label">This feedback survey is powered by:</p>
+      <div class="powered-logos">
+        <a href="https://thriivdigital.com.au" target="_blank" rel="noopener noreferrer">
+          <img src="uploads/logo-thriiv.png" alt="thriiv digital" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'thriiv.'}))"/>
+        </a>
+        <a href="https://momentuum.ai/" target="_blank" rel="noopener noreferrer">
+          <img src="uploads/logo-momentuum.png" alt="momentuum" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'momentuum'}))"/>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var form = document.getElementById('feedback-form');
+  var success = document.getElementById('form-success');
+  var ipField = document.getElementById('fb-ip');
+
+  fetch('https://api.ipify.org?format=json')
+    .then(function (r) { return r.json(); })
+    .then(function (d) { ipField.value = d.ip; })
+    .catch(function () {});
+
+  // Preview mode until a real Formspree form ID is set below.
+  if (form.action.includes('YOUR_FORMSPREE_ID')) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      form.style.display = 'none';
+      success.style.display = 'block';
+    });
+    return;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    var btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Submitting…'; btn.disabled = true;
+
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (res) {
+        if (res.ok) { form.style.display = 'none'; success.style.display = 'block'; }
+        else { btn.textContent = 'Submit Feedback'; btn.disabled = false; alert('Something went wrong — please try again.'); }
+      })
+      .catch(function () { btn.textContent = 'Submit Feedback'; btn.disabled = false; alert('Something went wrong — please try again.'); });
+  });
+})();
+</script>
+</body>
+</html>
